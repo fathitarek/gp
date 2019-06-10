@@ -44,7 +44,7 @@ CheckShutdownDate('February 22, 2019', 0);
 <span class='olr-label'>Please Select Course 1 </span>
 <select name='c1'>
 
-  <option value='BA101'>BA101-Calculus 1</option>
+    <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -76,9 +76,50 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
   <option value='CS402'>CS402-Project 2</option>
 
@@ -91,7 +132,7 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 2</h3></legend
 <span class='olr-label olr-required'>Please Select Course 2</span>
 <select name='c2'>
-  <option value='BA101'>BA101-Calculus 1</option>
+     <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -123,11 +164,52 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
-  <option value='CS402'>CS402-Project 2</option>
+  <option value='CS402'>CS402-Project 2</option>n>
 
  
  </select>
@@ -137,7 +219,7 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 3</h3></legend>
   <span class='olr-label olr-required'>Please Select Course 3</span>
 <select name='c3'>
-  <option value='BA101'>BA101-Calculus 1</option>
+     <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -169,9 +251,50 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
   <option value='CS402'>CS402-Project 2</option>
   
@@ -181,7 +304,7 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 4</h3></legend>
  <span class='olr-label olr-required'>Please Select Course 4</span>
 <select name='c4'>
-  <option value='BA101'>BA101-Calculus 1</option>
+     <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -213,9 +336,50 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
   <option value='CS402'>CS402-Project 2</option>
   </select>
@@ -225,7 +389,7 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 5</h3> </legend>
   <span class='olr-label olr-required'>Please Select Course 5</span>
 <select name='c5'>
-    <option value='BA101'>BA101-Calculus 1</option>
+        <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -257,9 +421,50 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
   <option value='CS402'>CS402-Project 2</option>
   
@@ -271,7 +476,7 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 6</h3> </legend>
   <span class='olr-label olr-required'>Please Select Course 6</span>
 <select name='c6'>
-    <option value='BA101'>BA101-Calculus 1</option>
+       <option value='BA101'>BA101-Calculus 1</option>
   <option value='BA113'>BA113-Physics</option>
   <option value='CS111'>CS111-Introduction to Computers</option>
   <option value='IS171'>IS171-Introduction to Information systems</option>
@@ -303,9 +508,50 @@ CheckShutdownDate('February 22, 2019', 0);
   <option value='CS352'>CS352-Computer Graphics</option>
   <option value='IT322'>IT322-Professional Training in Programming II (.Net 2)</option>
   <option value='CS481'>CS481-Computers & Society</option>
-  <option value='CS366'>CS451	Human Computer Interaction</option>
+  <option value='CS451'>CS451-Human Computer Interaction</option>
   <option value='CS366'>CS366-Introduction to Artificial Intelligence</option>
   <option value='CS322'>CS322-Operating Systems</option>
+  <option value='CS453'>CS453-Virtual Environments</option>
+  <option value='SE391'>SE391-Project Management</option>
+  <option value='CS475'>CS475-Information Retrieval</option>
+  <option value='CS469'>CS469-Robotics Applications</option>
+  <option value='CS468'>CS468-Advanced Artificial Intelligence</option>
+  <option value='CS464'>CS464-Soft Computing</option>
+  <option value='CS461'>CS461-Software Agents</option>
+  <option value='CS455'>CS455-Digital Image Processing</option>
+  <option value='CS454'>CS454-Multimedia Acquisition and Communications</option>
+  <option value='CS403'>CS403-Optimization Techniques</option>
+  <option value='CS449'>CS449-Functional Programming</option>
+  <option value='CS443'>CS443-Game Programming</option>
+  <option value='CS441'>CS441-Compilers</option>
+  <option value='CS432'>CS432-Network Protocols & Programming</option>
+  <option value='CS428'>CS428-Cloud Computing</option>
+  <option value='CS427'>CS427-Embedded Systems Programming</option>
+  <option value='CS425'>CS425-Distributed Systems</option>
+  <option value='CS411'>CS411-Data Compression</option>                        
+  <option value='CS305'>CS305-System Modeling and Simulation</option>
+  <option value='CS312'>CS312-Computing Algorithms</option>
+  <option value='CS445'>CS445-Structure of Programming Languages</option>
+  <option value='CS421'>CS421-Computer System Security</option>
+  <option value='IT400'>IT400-Practical Training *</option>
+  <option value='GM323'>GM323-Digital Lighting and Rendering</option>
+  <option value='GM324'>GM324-3D Modeling</option>
+  <option value='GM411'>GM411-Computer Animation</option>
+  <option value='GM415'>GM415-Digital Audio & Video Fundamentals</option>
+  <option value='GM417'>GM417-Media Production and Editing</option>
+  <option value='SE392'>SE392-Software Requirements and Specifications</option>
+  <option value='SE393'>SE393-Principles of Software Architecture</option>
+  <option value='SE491'>SE491-Software Component Design</option>
+  <option value='SE492'>SE492-Software Verification</option>
+  <option value='SE493'>SE493-Software Quality Assurance</option>
+  <option value='IS371'>IS371-E-business Fundamentals</option>
+  <option value='IS372'>IS372-Information Systems Theory And Practice</option>
+  <option value='IS374'>IS374-Advanced Database Systems</option>
+  <option value='IS391'>IS391-Systems Analysis & Design</option>
+  <option value='IS461'>IS461-Decision Support SystemsOperating Systems</option>
+  <option value='IS471'>IS471-Strategic Planning for IS</option>
+  
+  
   <option value='CS401'>CS401-Project 1</option>
   <option value='CS402'>CS402-Project 2</option>
   
@@ -320,8 +566,8 @@ CheckShutdownDate('February 22, 2019', 0);
 <select name='pt'>
    <option value='IT331'>IT331-Professional Training in Networking 1</option>
    <option value='IT332'>IT332-Professional Training in Networking 2</option>
-   <option value='IT333'>IT332	Professional Training in Networking 3</option>
-   <option value='IT371'>IT371	Professional Training in Databases 1</option>
+   <option value='IT333'>IT332-Professional Training in Networking 3</option>
+   <option value='IT371'>IT371-Professional Training in Databases 1</option>
    <option value='IT372'>IT372-Professional Training in Databases 2</option>
    <option value='IT373'>IT372-Professional Training in Databases 3</option>
    <option value='IT480'>IT480-Professional Training in Multimedia 1</option>
