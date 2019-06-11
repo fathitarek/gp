@@ -46,7 +46,11 @@ CheckShutdownDate('February 22, 2019', 0);
 	{
 		die ("sql statment NOT excuted: ".mysqli_error($con));
 	}
+   $old_courses=array();
+ while($row = mysqli_fetch_array($result)){
+  array_push($old_courses,$row['cid']);
 
+    }
 	if(mysqli_affected_rows($con) >0){
 		//header("Location: sh.php");
 		$_SESSION["isReg"] = true;
@@ -54,12 +58,38 @@ CheckShutdownDate('February 22, 2019', 0);
   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
    // echo $statment1;
     $result =mysqli_query($con,$statment1);
-    var_dump( $result);
+    
     if ($result==false)
     {
         die ("sql statment NOT excuted: ".mysqli_error($con));
     }
+    $new_courses_ids=array();
+    $new_courses_names=array();
+    while($row = mysqli_fetch_array($result)){
+      if (strpos($row['pre_id'], ',') !== false) {
+    // echo  $row['pre_id']."-----";
+    foreach (explode(",",$row['pre_id']) as  $pre_id) {
+ 
+if(in_array($pre_id, $old_courses)){
 
+  array_push($new_courses_ids,$row['id']);
+  array_push($new_courses_names,$row['name']);
+
+}
+    }
+  }
+
+if(in_array($row['pre_id'], $old_courses)){
+
+  array_push($new_courses_ids,$row['id']);
+  array_push($new_courses_names,$row['name']);
+
+}
+  
+
+    }
+// print_r($new_courses_names);
+   
 ?>
  
 <fieldset class='olr-line-ht-150'>
@@ -67,9 +97,11 @@ CheckShutdownDate('February 22, 2019', 0);
 <span class='olr-label'>Please Select Course 1 </span>
 <select name='c1'>
   <?php  
-        while($row = mysqli_fetch_array($result)){   
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
@@ -84,16 +116,11 @@ CheckShutdownDate('February 22, 2019', 0);
 <span class='olr-label olr-required'>Please Select Course 2</span>
 <select name='c2'>
     <?php  
-  $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
-    $result =mysqli_query($con,$statment1);
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-
-        while($row = mysqli_fetch_array($result)){   
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
@@ -106,17 +133,11 @@ CheckShutdownDate('February 22, 2019', 0);
   <span class='olr-label olr-required'>Please Select Course 3</span>
 <select name='c3'>
     <?php  
-       $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
-
-    $result =mysqli_query($con,$statment1);
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-
-        while($row = mysqli_fetch_array($result)){   
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
@@ -126,18 +147,13 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 4</h3></legend>
  <span class='olr-label olr-required'>Please Select Course 4</span>
 <select name='c4'>
-     <?php  
-        $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
-
-    $result =mysqli_query($con,$statment1);
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-
-        while($row = mysqli_fetch_array($result)){   
+    
+      <?php  
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
@@ -149,17 +165,11 @@ CheckShutdownDate('February 22, 2019', 0);
   <span class='olr-label olr-required'>Please Select Course 5</span>
 <select name='c5'>
       <?php  
-         $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
-
-    $result =mysqli_query($con,$statment1);
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-
-        while($row = mysqli_fetch_array($result)){   
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
@@ -170,19 +180,12 @@ CheckShutdownDate('February 22, 2019', 0);
   <legend> <h3> Course 6</h3> </legend>
   <span class='olr-label olr-required'>Please Select Course 6</span>
 <select name='c6'>
-      <?php  
-
-         $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
-
-    $result =mysqli_query($con,$statment1);
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-
-        while($row = mysqli_fetch_array($result)){   
+    <?php  
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
   ?>
- <option value="<?php echo $row ["id"];?>"><?php  echo $row ["id"].'-'. $row ["name"];  ?></option>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
 <?php 
  }
 ?>
