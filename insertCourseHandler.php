@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 $id = $_SESSION["uid"];
 $c1 = $_POST["c1"];
@@ -29,7 +29,7 @@ $flag7 = mysqli_query($con,$insertCourse7);
 
 if($flag1&&$flag2&&$flag3&&$flag4&&$flag5&&$flag6&&$flag7){
 	//echo "Done";
-	header("Location: sh.php");
+	//header("Location: sh.php");
 	$_SESSION["isReg"] = true;
 }
 else {
