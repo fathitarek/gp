@@ -59,16 +59,18 @@ CheckShutdownDate('February 22, 2019', 0);
   $statment1="select * from reg where reg.uid='$id' ";
    $result =mysqli_query($con,$statment1);
    if(mysqli_num_rows($result)>0){
-
-   }else{
 $number_of_sub=mysqli_num_rows($result);
+var_dump($number_of_sub);
 $number_of_hours=$number_of_sub*3;
 if ($number_of_hours>0&&$number_of_hours <=18) {
-  # code...
+  $courses_sql = "SELECT * from courses where courses.term=2 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if ($number_of_hours==0) {
+   }else{
+
+// if ($number_of_hours==0) {
       $courses_sql = "SELECT * from courses where courses.term=1 ";
       }
+
       $result =mysqli_query($con,$courses_sql);
       
       if ($result==false)
@@ -81,7 +83,7 @@ if ($number_of_hours==0) {
         array_push($new_courses_ids,$row['id']);
         array_push($new_courses_names,$row['name']);
        }
-   }
+ //  }
    // var_dump($new_courses_ids);
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
