@@ -65,6 +65,9 @@ $number_of_hours=$number_of_sub*3;
 if ($number_of_hours>0&&$number_of_hours <=18) {
   $courses_sql = "SELECT * from courses where courses.term=2 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
+if ($number_of_hours>18&&$number_of_hours <=36) {
+$courses_sql = "SELECT * from courses where courses.term=3 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+}
    }else{
 
 // if ($number_of_hours==0) {
