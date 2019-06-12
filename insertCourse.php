@@ -83,6 +83,14 @@ if ($number_of_hours>0&&$number_of_hours <=18) {
         array_push($new_courses_ids,$row['id']);
         array_push($new_courses_names,$row['name']);
        }
+
+         $courses_sql_fail = "SELECT * from courses , reg  where reg.grade=0 and reg.uid='$id' and reg.cid=courses.id";
+      $result =mysqli_query($con,$courses_sql_fail);
+
+       while($row = mysqli_fetch_array($result)){
+        array_push($new_courses_ids,$row['id']);
+        array_push($new_courses_names,$row['name']);
+       }
  //  }
    // var_dump($new_courses_ids);
 
