@@ -61,8 +61,14 @@ CheckShutdownDate('February 22, 2019', 0);
    if(mysqli_num_rows($result)>0){
 
    }else{
-
+$number_of_sub=mysqli_num_rows($result);
+$number_of_hours=$number_of_sub*3;
+if ($number_of_hours>0&&$number_of_hours <=18) {
+  # code...
+}
+if ($number_of_hours==0) {
       $courses_sql = "SELECT * from courses where courses.term=1 ";
+      }
       $result =mysqli_query($con,$courses_sql);
       
       if ($result==false)
@@ -213,7 +219,10 @@ CheckShutdownDate('February 22, 2019', 0);
 ?>
 </select>
 </fieldset>
-
+<?php
+if ($number_of_hours==72) {
+  
+?>
 <fieldset class='olr-line-ht-150'>
   <legend> Professional Training </legend>
   <span class='olr-label olr-required'>Please Select Professional Training Courses</span>
@@ -231,7 +240,7 @@ CheckShutdownDate('February 22, 2019', 0);
   
   
 	</select>
-	
+	<?php } ?>
 	<p style='text-align:center;'><input name="submit" type="submit" value="Insert Course" />
 
 </fieldset>
