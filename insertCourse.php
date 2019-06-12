@@ -75,7 +75,7 @@ if($number_of_hours>72&&$number_of_hours <=90) {
   $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
    }else{
-
+print_r("expression");
 // if ($number_of_hours==0) {
       $courses_sql = "SELECT * from courses where courses.term=1 ";
       }
@@ -89,7 +89,7 @@ if($number_of_hours>72&&$number_of_hours <=90) {
        $new_courses_ids=array();
     $new_courses_names=array();
        while($row = mysqli_fetch_array($result)){
-        if ($row['pre_id']==null) {
+        if ($row['pre_id']==null&&$row['term']!=1) {
          continue;
         }
         array_push($new_courses_ids,$row['id']);
@@ -240,7 +240,34 @@ if($number_of_hours>72&&$number_of_hours <=90) {
  }
 ?>
 </select>
+
 </fieldset>
+<?php
+$statment1="select * from reg where reg.uid='$id' ";
+   $result =mysqli_query($con,$statment1);
+$number_of_sub=mysqli_num_rows($result);
+// var_dump($number_of_sub);
+$number_of_hours=$number_of_sub*3;
+  if($number_of_hours>=36) {
+  
+?>
+<fieldset class='olr-line-ht-150'>
+  <legend> Course 7  </legend>
+  <span class='olr-label olr-required'>Please Select Course 7</span>
+
+<select name='c7'>
+  <?php  
+       // while($row = mysqli_fetch_array($result)){  
+       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+         
+  ?>
+ <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+  <?php 
+ }
+?>
+  </select>
+</fieldset>
+  <?php } ?>
 <?php
 $statment1="select * from reg where reg.uid='$id' ";
    $result =mysqli_query($con,$statment1);
