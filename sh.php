@@ -99,7 +99,7 @@ tr:nth-child(even) {
 		  array("_","_","_","_")
 	  );
 	  
-	for($i=0; $i<7; $i++){
+	for($i=0; $i<6; $i++){ //7
 		if($courses_array[$courses_day[$i]][$courses_period[$i]]!="_"){
 			$courses_array[$courses_day[$i]][$courses_period[$i]] = $courses_array[$courses_day[$i]][$courses_period[$i]]."<br>*CONFLICT*<br>".$courses_name[$i];
 		}
