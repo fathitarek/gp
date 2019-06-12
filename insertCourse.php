@@ -55,39 +55,61 @@ CheckShutdownDate('February 22, 2019', 0);
 		//header("Location: sh.php");
 		$_SESSION["isReg"] = true;
 	}
-  $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
-   // echo $statment1;
-    $result =mysqli_query($con,$statment1);
-    
-    if ($result==false)
-    {
-        die ("sql statment NOT excuted: ".mysqli_error($con));
-    }
-    $new_courses_ids=array();
+  
+  $statment1="select * from reg where reg.uid='$id' ";
+   $result =mysqli_query($con,$statment1);
+   if(mysqli_num_rows($result)>0){
+
+   }else{
+
+      $courses_sql = "SELECT * from courses where courses.term=1 ";
+      $result =mysqli_query($con,$courses_sql);
+      
+      if ($result==false)
+      {
+          die ("sql statment NOT excuted: ".mysqli_error($con));
+      }
+       $new_courses_ids=array();
     $new_courses_names=array();
-    while($row = mysqli_fetch_array($result)){
-      if (strpos($row['pre_id'], ',') !== false) {
-    // echo  $row['pre_id']."-----";
-    foreach (explode(",",$row['pre_id']) as  $pre_id) {
+       while($row = mysqli_fetch_array($result)){
+        array_push($new_courses_ids,$row['id']);
+        array_push($new_courses_names,$row['name']);
+       }
+   }
+   // var_dump($new_courses_ids);
+
+//   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+//    // echo $statment1;
+//     $result =mysqli_query($con,$statment1);
+    
+//     if ($result==false)
+//     {
+//         die ("sql statment NOT excuted: ".mysqli_error($con));
+//     }
+//     $new_courses_ids=array();
+//     $new_courses_names=array();
+//     while($row = mysqli_fetch_array($result)){
+//       if (strpos($row['pre_id'], ',') !== false) {
+//     echo  $row['pre_id']."-----";
+//     foreach (explode(",",$row['pre_id']) as  $pre_id) {
  
-if(in_array($pre_id, $old_courses)){
+//     if(in_array($pre_id, $old_courses)){
+//         array_push($new_courses_ids,$row['id']);
+//         array_push($new_courses_names,$row['name']);
 
-  array_push($new_courses_ids,$row['id']);
-  array_push($new_courses_names,$row['name']);
+//       }
+//     }
+//   }
 
-}
-    }
-  }
+// if(in_array($row['pre_id'], $old_courses)){
 
-if(in_array($row['pre_id'], $old_courses)){
+  // array_push($new_courses_ids,$row['id']);
+//   array_push($new_courses_names,$row['name']);
 
-  array_push($new_courses_ids,$row['id']);
-  array_push($new_courses_names,$row['name']);
-
-}
+// }
   
 
-    }
+//     }
 // print_r($new_courses_names);
    
 ?>
