@@ -71,6 +71,9 @@ $courses_sql = "SELECT * from courses where courses.term=3 and  courses.id NOT I
 if ($number_of_hours>36&&$number_of_hours <=72) {
 $courses_sql = "SELECT * from courses where courses.term=4 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
+if($number_of_hours>72&&$number_of_hours <=90) {
+  $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+}
    }else{
 
 // if ($number_of_hours==0) {
@@ -263,6 +266,29 @@ if($number_of_hours>36&&$number_of_hours <=72) {
   
 	</select>
 	<?php } ?>
+<?php
+  if($number_of_hours>72&&$number_of_hours <=90) {
+  
+?>
+<fieldset class='olr-line-ht-150'>
+  <legend> Professional Training </legend>
+  <span class='olr-label olr-required'>Please Select Professional Training Courses</span>
+
+<select name='pt'>
+  <!-- IT321- Professional Training in Programming I (.Net 1) -->
+   <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
+    <option value='IT332'>IT332-Professional Training in Networking 2</option>
+   <!--<option value='IT333'>IT332-Professional Training in Networking 3</option>
+   <option value='IT371'>IT371-Professional Training in Databases 1</option>
+   <option value='IT372'>IT372-Professional Training in Databases 2</option>
+   <option value='IT373'>IT372-Professional Training in Databases 3</option>
+   <option value='IT480'>IT480-Professional Training in Multimedia 1</option>
+   <option value='IT481'>IT481-Professional Training in Multimedia 2</option>
+   <option value='IT482'>IT482-Professional Training in Multimedia 3</option> -->
+  
+  
+  </select>
+  <?php } ?>
 	<p style='text-align:center;'><input name="submit" type="submit" value="Insert Course" />
 
 </fieldset>
