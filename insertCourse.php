@@ -89,9 +89,13 @@ if($number_of_hours>72&&$number_of_hours <=90) {
        $new_courses_ids=array();
     $new_courses_names=array();
        while($row = mysqli_fetch_array($result)){
-        if ($row['pre_id']==null&&$row['term']!=1&&$row['term']!=5) {
+        if ($row['pre_id']==null&&$row['term']!=1) {
          continue;
         }
+         if ($row['id']=='IT322') {
+          continue;
+        }
+
         array_push($new_courses_ids,$row['id']);
         array_push($new_courses_names,$row['name']);
        }
