@@ -75,7 +75,7 @@ if($number_of_hours>72&&$number_of_hours <=90) {
   $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
    }else{
-print_r("expression");
+// print_r("expression");
 // if ($number_of_hours==0) {
       $courses_sql = "SELECT * from courses where courses.term=1 ";
       }
@@ -242,32 +242,8 @@ print_r("expression");
 </select>
 
 </fieldset>
-<?php
-$statment1="select * from reg where reg.uid='$id' ";
-   $result =mysqli_query($con,$statment1);
-$number_of_sub=mysqli_num_rows($result);
-// var_dump($number_of_sub);
-$number_of_hours=$number_of_sub*3;
-  if($number_of_hours>=36) {
-  
-?>
-<fieldset class='olr-line-ht-150'>
-  <legend> Course 7  </legend>
-  <span class='olr-label olr-required'>Please Select Course 7</span>
 
-<select name='c7'>
-  <?php  
-       // while($row = mysqli_fetch_array($result)){  
-       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-         
-  ?>
- <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-  <?php 
- }
-?>
-  </select>
-</fieldset>
-  <?php } ?>
+  
 <?php
 $statment1="select * from reg where reg.uid='$id' ";
    $result =mysqli_query($con,$statment1);
@@ -283,7 +259,7 @@ if($number_of_hours>36&&$number_of_hours <=72) {
 
 <select name='pt'>
   <!-- IT321- Professional Training in Programming I (.Net 1) -->
-   <option value='IT331'>IT331-Professional Training in Networking 1</option>
+   <option value='IT321'>IT321- Professional Training in Programming I (.Net 1)</option>
   <!--  <option value='IT332'>IT332-Professional Training in Networking 2</option>
    <option value='IT333'>IT332-Professional Training in Networking 3</option>
    <option value='IT371'>IT371-Professional Training in Databases 1</option>
@@ -307,7 +283,7 @@ if($number_of_hours>36&&$number_of_hours <=72) {
 <select name='pt'>
   <!-- IT321- Professional Training in Programming I (.Net 1) -->
    <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
-    <option value='IT332'>IT332-Professional Training in Networking 2</option>
+    <option value='IT322'>IT322-Professional Training in Programming II(.Net 2)</option>
    <!--<option value='IT333'>IT332-Professional Training in Networking 3</option>
    <option value='IT371'>IT371-Professional Training in Databases 1</option>
    <option value='IT372'>IT372-Professional Training in Databases 2</option>
