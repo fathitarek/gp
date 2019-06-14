@@ -71,7 +71,8 @@
       <a class="btn btn-outline-primary" href="#" role="button">Community&amp;E-Learning</a>
       <a class="btn btn-outline-primary" href="#" role="button">Open Access</a>
       <a class="btn btn-outline-primary" href="#" role="button">Link</a>
-            <a class="btn btn-outline-primary" href="department.php" role="button">Minor Dwepartment</a>
+      <a class="btn btn-outline-primary" href="department.php" role="button">Minor Department</a>
+      <a class="btn btn-outline-primary" href="history.php" role="button">History</a>
 
       <a class="btn btn-outline-primary" href="#" role="button">...</a>
     </div></div></div>
