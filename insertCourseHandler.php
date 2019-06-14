@@ -10,7 +10,18 @@ $c6 = $_POST["c6"];
 if ($_POST["pt"]) {
 	$pt = $_POST["pt"];
 }
-// 
+$select_courses=array();
+array_push($select_courses,$_POST ["c1"]);
+array_push($select_courses,$_POST ["c2"]);
+array_push($select_courses,$_POST ["c3"]);
+array_push($select_courses,$_POST ["c4"]);
+array_push($select_courses,$_POST ["c5"]);
+array_push($select_courses,$_POST ["c6"]);
+if ($_POST["pt"]) {
+array_push($select_courses,$_POST ["pt"]);
+}
+$_SESSION['select_courses']=$select_courses;
+
 $con = mysqli_connect("localhost","root","") or die("Error in Server");
 $db = mysqli_select_db($con,"test1") or die("Error in DB");
 

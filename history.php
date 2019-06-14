@@ -31,7 +31,7 @@ $result = mysqli_query($con,$insert);
    <?php if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_array($result)){
        
-  echo "<li> ". $row['id'].'-'.$row['name']."</li>";
+  echo "<li> ". $row['id'].'-'.$row['name']."  In  Term : ".$row['term']."</li>";
 }}else{?>
     <li> No Course Found</li>
 <?php

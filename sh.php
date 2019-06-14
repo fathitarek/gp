@@ -54,23 +54,52 @@ tr:nth-child(even) {
 	$con = mysqli_connect("localhost","root","") or die (" can not establish connection ");
 	mysqli_select_db($con,"test1") or die (" can not select db ");
 	
-	$statment1 = "SELECT * from reg WHERE uid = '$id'";
-	$result =mysqli_query($con,$statment1);
-	if ($result==false)
-	{
-		die ("sql statment NOT excuted: ".mysqli_error($con));
-	}
+
+//  $statment1="select * from reg where reg.uid='$id' ";
+//    $result =mysqli_query($con,$statment1);
+// $number_of_sub=mysqli_num_rows($result);
+// var_dump($number_of_sub);
+// $number_of_hours=$number_of_sub*3;
+// var_dump($number_of_hours);
+// if ($number_of_sub==6) {
+//   $statment1 = "SELECT * FROM reg where  reg.uid='$id' LIMIT 6 ";
+// }
+// if ($number_of_sub==12) {
+// $statment1 = "SELECT * FROM reg where reg.uid='$id'  LIMIT 6 OFFSET 6";
+// }
+// if ($number_of_sub==18) {
+// 	echo"yy";
+// $statment1 = "SELECT * FROM reg where reg.uid='$id'  LIMIT 6 OFFSET 12";
+// }
+// if($number_of_sub==25) {
+//   $statment1 = "SELECT * FROM reg where reg.uid='$id'  LIMIT 7 OFFSET 18";
+// }
+// if($number_of_sub==32) {
+//   $statment1 = "SELECT * FROM reg where reg.uid='$id' LIMIT 7 OFFSET 25";
+// }
+
+	//SELECT * FROM reg LIMIT 5 OFFSET 20
+
+	//$statment1 = "SELECT * from reg WHERE uid = '$id'";
+
+	// var_dump($_SESSION['select_courses']);
+	// $result =mysqli_query($con,$statment1);
+	// if ($result==false)
+	// {
+	// 	die ("sql statment NOT excuted: ".mysqli_error($con));
+	// }
 	
 	$courses = array();
-	while($row = mysqli_fetch_array($result)){
-		array_push($courses,$row ["cid"]);
-	}
+	// while($row = mysqli_fetch_array($result)){
+	// 	array_push($courses,$row ["cid"]);
+	// 	echo $row['cid'].'    ';
+	// }
 
 	$courses_day = array();
 	$courses_period = array();
 	$courses_name = array();
 	
-	foreach($courses as $key=>$value){
+	foreach($_SESSION['select_courses'] as $key=>$value){
 		$statment1 = "SELECT * from courses WHERE id = '$value'";
 		$result =mysqli_query($con,$statment1);
 		if ($result==false)
@@ -99,7 +128,7 @@ tr:nth-child(even) {
 		  array("_","_","_","_")
 	  );
 	  
-	for($i=0; $i<6; $i++){ //7
+	for($i=0; $i<sizeof($_SESSION['select_courses']); $i++){ //7
 		if($courses_array[$courses_day[$i]][$courses_period[$i]]!="_"){
 			$courses_array[$courses_day[$i]][$courses_period[$i]] = $courses_array[$courses_day[$i]][$courses_period[$i]]."<br>*CONFLICT*<br>".$courses_name[$i];
 		}

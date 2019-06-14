@@ -74,6 +74,12 @@ $courses_sql = "SELECT * from courses where courses.term=4 and  courses.id NOT I
 if($number_of_hours>72&&$number_of_hours <=90) {
   $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
+
+if($number_of_hours>90&&$number_of_hours <=108) {
+
+  $courses_sql = "SELECT * from courses where courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+// }
+}
    }else{
 // print_r("expression");
 // if ($number_of_hours==0) {
@@ -107,7 +113,22 @@ if($number_of_hours>72&&$number_of_hours <=90) {
         array_push($new_courses_ids,$row['id']);
         array_push($new_courses_names,$row['name']);
        }
- //  }
+
+if($number_of_hours>90&&$number_of_hours <=108) {
+
+      $dept="select * from dept where dept.uid='$id'";
+      $result =mysqli_query($con,$dept);
+      while($row = mysqli_fetch_array($result)){
+        echo $row['dept'];
+       $my_dept= $row['dept'];
+      $courses_sql = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+       }
+       $result =mysqli_query($con,$courses_sql);
+ }
+  while($row = mysqli_fetch_array($result)){
+        array_push($new_courses_ids,$row['id']);
+        array_push($new_courses_names,$row['name']);
+       }
    // var_dump($new_courses_ids);
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
