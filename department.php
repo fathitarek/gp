@@ -48,6 +48,13 @@ if(mysqli_num_rows($result)>0){
 }
 }else{
 
+ $statment1="select * from reg where reg.uid='$id' ";
+   $result =mysqli_query($con,$statment1);
+   if(mysqli_num_rows($result)>0){
+$number_of_sub=mysqli_num_rows($result);
+// var_dump($number_of_sub);
+$number_of_hours=$number_of_sub*3;
+if($number_of_hours>90&&$number_of_hours <=108) {
     ?>
     <div class="">
         <h3> Minor Department</h3>
@@ -81,6 +88,11 @@ professional Training Multimedia -->
 
 </form>
     </div>
-<?php } ?>
+<?php } else{
+    echo "<h3> Not allow to register your departments </h3>";
+}
+
+}}
+?>
 </body>
 </html>
