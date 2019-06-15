@@ -75,9 +75,14 @@ if($number_of_hours>72&&$number_of_hours <=90) {
   $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
 
-if($number_of_hours>90&&$number_of_hours <=108) {
+if($number_of_hours>108&&$number_of_hours <=126) {
 
   $courses_sql = "SELECT * from courses where courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+// }
+}
+if($number_of_hours>90&&$number_of_hours <=108) {
+
+  $courses_sql = "SELECT * from courses where courses.term=7 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }
 }
    }else{
@@ -125,7 +130,7 @@ if($number_of_hours>90&&$number_of_hours <=108) {
       $dept="select * from dept where dept.uid='$id'";
       $result =mysqli_query($con,$dept);
       while($row = mysqli_fetch_array($result)){
-        echo $row['dept'];
+        // echo $row['dept'];
        $my_dept= $row['dept'];
       $courses_sql2 = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
       $result2 =mysqli_query($con,$courses_sql2);
@@ -135,7 +140,23 @@ if($number_of_hours>90&&$number_of_hours <=108) {
        }
        }
      }
-       
+   
+
+   if($number_of_hours>108&&$number_of_hours <=126) {
+
+      $dept="select * from dept where dept.uid='$id'";
+      $result =mysqli_query($con,$dept);
+      while($row = mysqli_fetch_array($result)){
+        // echo $row['dept'];
+       $my_dept= $row['dept'];
+      $courses_sql2 = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+      $result2 =mysqli_query($con,$courses_sql2);
+       while($row = mysqli_fetch_array($result2)){
+        array_push($new_courses_ids,$row['id']);
+        array_push($new_courses_names,$row['name']);
+       }
+       }
+     }    
  }
   
    // var_dump($new_courses_ids);
@@ -335,7 +356,7 @@ if($number_of_hours>36&&$number_of_hours <=72) {
   $dept="select * from dept where dept.uid='$id'";
       $result =mysqli_query($con,$dept);
       while($row = mysqli_fetch_array($result)){
-        echo $row['traning_dept'];
+        // echo $row['traning_dept'];
        $traning_dept= $row['traning_dept'];
 ?>
 <fieldset class='olr-line-ht-150'>
@@ -351,6 +372,43 @@ if($number_of_hours>36&&$number_of_hours <=72) {
  <?php }?>
  <?php if ($traning_dept=='net') {?>
      <option  selected value='IT331'>IT331-Professional Training in Networking 1</option>
+ <?php }?>
+   <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
+   <!-- <option value='IT332'>IT331-Professional Training in Networking 2</option> -->
+   <!--<option value='IT333'>IT332-Professional Training in Networking 3</option>
+  
+   <option value='IT372'>IT372-Professional Training in Databases 2</option>
+   <option value='IT373'>IT372-Professional Training in Databases 3</option>
+   <option value='IT480'>IT480-Professional Training in Multimedia 1</option>
+   <option value='IT481'>IT481-Professional Training in Multimedia 2</option>
+   <option value='IT482'>IT482-Professional Training in Multimedia 3</option> -->
+  
+  
+  </select>
+  <?php } 
+}?>
+
+ <?php
+  if($number_of_hours>108&&$number_of_hours <=126) {
+  $dept="select * from dept where dept.uid='$id'";
+      $result =mysqli_query($con,$dept);
+      while($row = mysqli_fetch_array($result)){
+        // echo $row['traning_dept'];
+       $traning_dept= $row['traning_dept'];
+?>
+<fieldset class='olr-line-ht-150'>
+  <legend> Professional Training </legend>
+  <span class='olr-label olr-required'>Please Select Professional Training Courses</span>
+
+<select name='pt'>
+  <?php if ($traning_dept=='db') {?>
+     <option  selected value='IT372'>IT371-Professional Training in Databases 2</option>
+ <?php }?>
+ <?php if ($traning_dept=='multi') {?>
+     <option  selected value='IT481'>IT480-Professional Training in Multimedia 2</option>
+ <?php }?>
+ <?php if ($traning_dept=='net') {?>
+     <option  selected value='IT332'>IT331-Professional Training in Networking 2</option>
  <?php }?>
    <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
    <!-- <option value='IT332'>IT331-Professional Training in Networking 2</option> -->
