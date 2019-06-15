@@ -33,6 +33,18 @@ if(mysqli_num_rows($result)>0){
        if ($row['dept']=='IS') {
             echo "<h3> your Minor Department is Informations systems (". $row['dept'].")</h3>";
        }
+
+
+          if ($row['traning_dept']=='db') {
+            echo "<h3> your Minor Department is Database</h3>";
+       }
+       if ($row['traning_dept']=='net') {
+            echo "<h3> your Minor Department is Network </h3>";
+       }
+       if ($row['traning_dept']=='multi') {
+            echo "<h3> your Minor Department is Multimedia </h3>";
+       }
+      
 }
 }else{
 
@@ -47,11 +59,23 @@ Seen by AhMed AbdAlah at 3:14 AMSeen by Islam Mohamed at 3:14 AM
  -->
 <form method="post" action="departmentHandler.php">
 
-<select name="dept">
+<select name="dept" required>
+    <option value=""> Choose Minor Department</option>
     <option value="CS">Computer science(CS)</option>
     <option value="SE">Software engineering(SE)</option>
     <option value="GM">Graphics & multimedia(GM)</option>
     <option value="IS">Informations systems(IS)</option>
+</select>
+
+<!-- Professional Training Network
+professional Training Database
+professional Training Multimedia -->
+
+<select name="traning_dept" required>
+    <option value=""> Choose Traning Department</option>
+    <option value="net"> Network</option>
+    <option value="db">Database</option>
+    <option value="multi">MultiMedia</option>
 </select>
     <p style='text-align:left;'><input name="submit" type="submit" value="OK" />
 

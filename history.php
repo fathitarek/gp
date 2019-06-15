@@ -16,7 +16,7 @@
     $con = mysqli_connect("localhost","root","") or die("Error in Server");
 $db = mysqli_select_db($con,"test1") or die("Error in DB");
 
-$insert = "select * from reg,courses where reg.uid='$id' and reg.grade=1 and reg.cid=courses.id";
+$insert = "select * from reg,courses where reg.uid='$id' and reg.grade=1 and reg.cid=courses.id order by courses.term";
 $result = mysqli_query($con,$insert);
 
 
