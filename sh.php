@@ -116,7 +116,10 @@ tr:nth-child(even) {
 	}
 	
 	
-	
+	ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+
 	
 	$courses_array = array
 	  (
@@ -127,9 +130,11 @@ tr:nth-child(even) {
 		  array("_","_","_","_"),
 		  array("_","_","_","_")
 	  );
-	  
+
+	  // echo $courses_array[$courses_day[0]][$courses_period[1]];
 	for($i=0; $i<sizeof($_SESSION['select_courses']); $i++){ //7
 		if($courses_array[$courses_day[$i]][$courses_period[$i]]!="_"){
+			
 			$courses_array[$courses_day[$i]][$courses_period[$i]] = $courses_array[$courses_day[$i]][$courses_period[$i]]."<br>*CONFLICT*<br>".$courses_name[$i];
 		}
 		else{

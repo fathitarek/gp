@@ -29,14 +29,14 @@ CheckShutdownDate('February 22, 2019', 0);
 
   
 </select>
-<br />
+<!-- <br /> -->
 
 </select>
 <?php
 	session_start();
 	$id = $_SESSION["uid"];
-	echo "welcome " .$id;
- 
+	echo "<h3>welcome " .$id."</h3>";
+ echo "<h3>welcome " .$_SESSION['username']."</h3>";
 	$con = mysqli_connect("localhost","root","") or die (" can not establish connection ");
 	mysqli_select_db($con,"test1") or die (" can not select db ");
 	
