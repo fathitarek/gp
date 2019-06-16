@@ -68,33 +68,33 @@ if ($number_of_hours>144) {
   header("Location: profile.php");
 
 }
-if ($number_of_hours>0&&$number_of_hours <=18) {
+if ($number_of_hours>0&&$number_of_hours <=18) {// term2
   $courses_sql = "SELECT * from courses where courses.term=2 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if ($number_of_hours>18&&$number_of_hours <=36) {
+if ($number_of_hours>18&&$number_of_hours <=36) { //term3
 $courses_sql = "SELECT * from courses where courses.term=3 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if ($number_of_hours>36&&$number_of_hours <=72) {
+if ($number_of_hours>36&&$number_of_hours <=72) {//term4
 $courses_sql = "SELECT * from courses where courses.term=4 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if($number_of_hours>72&&$number_of_hours <=90) {
+if($number_of_hours>72&&$number_of_hours <=90) { // term5
   $courses_sql = "SELECT * from courses where courses.term=5 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
 
-if($number_of_hours>108&&$number_of_hours <=126) {
+if($number_of_hours>108&&$number_of_hours <=126) { // term7
 
-  $courses_sql = "SELECT * from courses where courses.term=7 and courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
-// }
+  $courses_sql = "SELECT * from courses where (courses.term=7 OR courses.term=6)and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+// } where courses.id!=course.pre_id
 }
 
-if($number_of_hours>126&&$number_of_hours <=144) {
+if($number_of_hours>126&&$number_of_hours <=144) { // term 8
 
-  $courses_sql = "SELECT * from courses where courses.term=8 and courses.term=7 and courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+  $courses_sql = "SELECT * from courses where  (courses.term=8 OR courses.term=7 OR courses.term=6)and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }
 }
-if($number_of_hours>90&&$number_of_hours <=108) {
+if($number_of_hours>90&&$number_of_hours <=108) {// term6
 
-  $courses_sql = "SELECT * from courses where courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+  $courses_sql = "SELECT * from courses where courses.term=6  and courses.id!=course.pre_id and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }
 }
    }else{
