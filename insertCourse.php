@@ -40,7 +40,7 @@ CheckShutdownDate('February 22, 2019', 0);
 	$con = mysqli_connect("localhost","root","") or die (" can not establish connection ");
 	mysqli_select_db($con,"test1") or die (" can not select db ");
 	
-	$statment = "SELECT * from reg WHERE uid = '$id'";
+	$statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id'";
 	$result =mysqli_query($con,$statment);
 	if ($result==false)
 	{
@@ -49,8 +49,9 @@ CheckShutdownDate('February 22, 2019', 0);
    $old_courses=array();
  while($row = mysqli_fetch_array($result)){
   array_push($old_courses,$row['cid']);
-
     }
+       // print_r($old_courses);
+
 	if(mysqli_affected_rows($con) >0){
 		//header("Location: sh.php");
 		$_SESSION["isReg"] = true;
@@ -94,8 +95,8 @@ if($number_of_hours>126&&$number_of_hours <=144) { // term 8
 }
 if($number_of_hours>90&&$number_of_hours <=108) {// term6
 
-  $courses_sql = "SELECT * from courses where courses.term=6  and courses.id!=course.pre_id and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
-// }
+  $courses_sql = "SELECT * from courses where courses.term=6   and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+// }and courses.id!=courses.pre_id
 }
    }else{
 // print_r("expression");
@@ -118,9 +119,39 @@ if($number_of_hours>90&&$number_of_hours <=108) {// term6
          if ($row['id']=='IT322') {
           continue;
         }
+//Pre-Request
+            // echo  "***".$row['pre_id']."-----";
 
-        array_push($new_courses_ids,$row['id']);
-        array_push($new_courses_names,$row['name']);
+        // echo strpos($row['pre_id'], ',');
+         if (strpos($row['pre_id'], ',') !== false) {
+          // print_r($old_courses);
+    // echo  "***".$row['pre_id']."-----";
+          $ones=array();
+    foreach (explode(",",$row['pre_id']) as  $pre_id) {
+ // echo $pre_id;
+      
+    if(in_array($pre_id, $old_courses)){
+      array_push($ones, 1);
+
+      //  array_push($new_courses_ids,$row['id']);
+       // array_push($new_courses_names,$row['name']);
+
+      }//for
+      // print_r($ones);
+      if (sizeof($ones)==explode(",",$row['pre_id'])) {
+         array_push($new_courses_ids,$row['id']);
+       array_push($new_courses_names,$row['name']);
+      }
+    }//if
+  }
+  if(in_array($row['pre_id'], $old_courses)){
+
+  array_push($new_courses_ids,$row['id']);
+  array_push($new_courses_names,$row['name']);
+
+}
+        // array_push($new_courses_ids,$row['id']);
+        // array_push($new_courses_names,$row['name']);
        }
 
          $courses_sql_fail = "SELECT * from courses , reg  where reg.grade=0 and reg.uid='$id' and reg.cid=courses.id";
@@ -147,10 +178,12 @@ if($number_of_hours>90&&$number_of_hours <=108) {
       $courses_sql2 = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
       $result2 =mysqli_query($con,$courses_sql2);
        while($row = mysqli_fetch_array($result2)){
+// Pre Request
         array_push($new_courses_ids,$row['id']);
         array_push($new_courses_names,$row['name']);
        }
        }
+
      }
    
 
@@ -192,7 +225,7 @@ if($number_of_hours>90&&$number_of_hours <=108) {
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 //    // echo $statment1;
-//     $result =mysqli_query($con,$statment1);
+//     $result =mysqli_query($con,$courses_sql);
     
 //     if ($result==false)
 //     {
@@ -209,9 +242,9 @@ if($number_of_hours>90&&$number_of_hours <=108) {
 //         array_push($new_courses_ids,$row['id']);
 //         array_push($new_courses_names,$row['name']);
 
-//       }
-//     }
-//   }
+//       }//for
+//     }//if
+//   }//while
 
 // if(in_array($row['pre_id'], $old_courses)){
 
