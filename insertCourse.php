@@ -83,13 +83,13 @@ if($number_of_hours>72&&$number_of_hours <=90) {
 
 if($number_of_hours>108&&$number_of_hours <=126) {
 
-  $courses_sql = "SELECT * from courses where (courses.term=7 OR courses.term=6)and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+  $courses_sql = "SELECT * from courses where courses.term=7 and courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }
 }
 
 if($number_of_hours>126&&$number_of_hours <=144) {
 
-  $courses_sql = "SELECT * from courses where (courses.term=8 OR courses.term=7 OR courses.term=6)and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+  $courses_sql = "SELECT * from courses where courses.term=8 and courses.term=7 and courses.term=6 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }
 }
 if($number_of_hours>90&&$number_of_hours <=108) {
