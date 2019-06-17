@@ -21,7 +21,9 @@
  $c3 = $_POST["c3"];
  $c4 = $_POST["c4"];
  $c5 = $_POST["c5"];
- $c6 = $_POST["c6"];
+ if (isset($_POST["c6"])) {
+ 	$c6 = $_POST["c6"];
+ }
  if (isset($_POST["pt"])) {
  	$pt = $_POST["pt"];
 
@@ -44,7 +46,9 @@
  	$_SESSION['term63']=$c3;
  	$_SESSION['term64']=$c4;
  	$_SESSION['term65']=$c5;
- 	$_SESSION['term66']=$c6;
+ 	if (isset($_POST["c6"])) {
+ 		$_SESSION['term66']=$c6;
+ 	}
 // $_SESSION['term6']=$term6;
 // var_dump($_SESSION['term6']);
 // print_r("expression");
@@ -56,7 +60,9 @@
  	$_SESSION['term73']=$c3;
  	$_SESSION['term74']=$c4;
  	$_SESSION['term75']=$c5;
- 	$_SESSION['term76']=$c6;
+ 	if (isset($_POST["c6"])) {
+ 		$_SESSION['term76']=$c6;
+ 	}
 // $_SESSION['term7']=$term7;
 // var_dump($_SESSION['term7']);
 // print_r("expression");
@@ -69,7 +75,9 @@
  	$_SESSION['term83']=$c3;
  	$_SESSION['term84']=$c4;
  	$_SESSION['term85']=$c5;
- 	$_SESSION['term86']=$c6;
+ 	if (isset($_POST["c6"])) {
+ 		$_SESSION['term86']=$c6;
+ 	}
 // $_SESSION['term8']=$term8;
  }
 
@@ -93,21 +101,23 @@
  $exist3="select * from reg where reg.uid='$id' and cid='$c3' and grade=0";
  $exist4="select * from reg where reg.uid='$id' and cid='$c4' and grade=0";
  $exist5="select * from reg where reg.uid='$id' and cid='$c5' and grade=0";
- $exist6="select * from reg where reg.uid='$id' and cid='$c6' and grade=0";
-
+ if (isset($_POST["c6"])) {
+ 	$exist6="select * from reg where reg.uid='$id' and cid='$c6' and grade=0";
+ }
  $result1 =mysqli_query($con,$exist1);
  $result2 =mysqli_query($con,$exist2);
  $result3 =mysqli_query($con,$exist3);
  $result4 =mysqli_query($con,$exist4);
  $result5 =mysqli_query($con,$exist5);
- $result6 =mysqli_query($con,$exist6);
-
-print_r(mysqli_num_rows($result1));
+ if (isset($_POST["c6"])) {
+ 	$result6 =mysqli_query($con,$exist6);
+ }
+ print_r(mysqli_num_rows($result1));
 
  if(mysqli_num_rows($result1)>0){
  	$insertCourse1= "update reg   set reg.grade=1 where  reg.uid='$id' and cid='$c1'";
  }else{
-print_r("else");
+ 	print_r("else");
  	$insertCourse1 = "Insert into reg (uid,cid) VALUES ('$id','$c1')";
  }
 
@@ -137,12 +147,15 @@ print_r("else");
  }else{
  	$insertCourse5 = "Insert into reg (uid,cid) VALUES ('$id','$c5')";
  }
+ if (isset($_POST["c6"])) {
+ 	if(mysqli_num_rows($result6)>0){
+ 		$insertCourse6="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c6'";
+ 	}else{
 
- if(mysqli_num_rows($result6)>0){
- 	$insertCourse6="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c6'";
- }else{
+ 		$insertCourse6 = "Insert into reg (uid,cid) VALUES ('$id','$c6')";
+ 	}
 
- 	$insertCourse6 = "Insert into reg (uid,cid) VALUES ('$id','$c6')";
+
  }
  if (isset($_POST["pt"])) {
  	$insertCourse7 = "Insert into reg (uid,cid) VALUES ('$id','$pt')";}
