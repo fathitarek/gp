@@ -121,6 +121,7 @@ if($number_of_hours>=138&&$number_of_hours <159) { // term 8
  	$result6 =mysqli_query($con,$exist6);
  }
  // print_r(mysqli_num_rows($result1));
+if (isset($c1)) {
 
  if(mysqli_num_rows($result1)>0){
  	$insertCourse1= "update reg   set reg.grade=1 where  reg.uid='$id' and cid='$c1'";
@@ -129,33 +130,38 @@ if($number_of_hours>=138&&$number_of_hours <159) { // term 8
  	$insertCourse1 = "Insert into reg (uid,cid) VALUES ('$id','$c1')";
  }
 
-
+}
+if (isset($c2)) {
  if(mysqli_num_rows($result2)>0){
  	$insertCourse2="update reg   set reg.grade=1 where  reg.uid='$id' and cid='$c2'";
  }else{
  	$insertCourse2 = "Insert into reg (uid,cid) VALUES ('$id','$c2')";
 
  }
-
+}
+if (isset($c3)) {
 
  if(mysqli_num_rows($result3)>0){
  	$insertCourse3="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c3'";
  }else{
  	$insertCourse3 = "Insert into reg (uid,cid) VALUES ('$id','$c3')";
  }
-
+}
+if (isset($c4)) {
  if(mysqli_num_rows($result4)>0){
  	$insertCourse4="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c4'";
  }else{
  	$insertCourse4 = "Insert into reg (uid,cid) VALUES ('$id','$c4')";
  }
-
+}
+if (isset($c5)) {
  if(mysqli_num_rows($result5)>0){
  	$insertCourse5="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c5'";
  }else{
  	$insertCourse5 = "Insert into reg (uid,cid) VALUES ('$id','$c5')";
  }
- if (isset($_POST["c6"])) {
+}
+if (isset($c6)) {
  	if(mysqli_num_rows($result6)>0){
  		$insertCourse6="UPDATE reg   set reg.grade=1 where  reg.uid='$id' and cid='$c6'";
  	}else{
@@ -163,8 +169,8 @@ if($number_of_hours>=138&&$number_of_hours <159) { // term 8
  		$insertCourse6 = "Insert into reg (uid,cid) VALUES ('$id','$c6')";
  	}
 
-
- }
+}
+ 
  if (isset($_POST["pt"])) {
  	$insertCourse7 = "Insert into reg (uid,cid) VALUES ('$id','$pt')";}
 
@@ -174,14 +180,16 @@ if($number_of_hours>=138&&$number_of_hours <159) { // term 8
  	$flag3 = mysqli_query($con,$insertCourse3);
  	$flag4 = mysqli_query($con,$insertCourse4);
  	$flag5 = mysqli_query($con,$insertCourse5);
+ 	if (isset($_POST["c6"])) {
  	$flag6 = mysqli_query($con,$insertCourse6);
-
+}
  	if (isset($_POST["pt"])) {
 
  		$flag7 = mysqli_query($con,$insertCourse7);
  	}
  	if($flag1&&$flag2&&$flag3&&$flag4&&$flag5&&$flag6){
 	//echo "Done";
+ 		++$_SESSION['num_term'];
  		header("Location: sh.php");
  		$_SESSION["isReg"] = true;
  	}
