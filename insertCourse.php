@@ -64,20 +64,20 @@
 
     $number_of_hours=$number_of_sub*3;
     // echo "nummm";
-var_dump($number_of_hours);
+    var_dump($number_of_hours);
 // die();
-    if ($number_of_hours>144) {
+    if ($number_of_hours>159) {
       header("Location: profile.php");
-
     }
-if ($number_of_hours>18&&$number_of_hours <=36) {// term2
+if ($number_of_hours>=18&&$number_of_hours <36) {// term2
+  echo "term2";
   $courses_sql = "SELECT * from courses where courses.term=2 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if ($number_of_hours>36&&$number_of_hours <=54) { //term3
+if ($number_of_hours>=36&&$number_of_hours <54) { //term3
   // echo "term3";
   $courses_sql = "SELECT * from courses where (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
-if ($number_of_hours>54&&$number_of_hours <75) {//term4
+if ($number_of_hours>=54&&$number_of_hours <75) {//term4
   // echo "term4";
   $courses_sql = "SELECT * from courses where (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1) ";
 // } and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1)";
@@ -90,28 +90,28 @@ if($number_of_hours>=75&&$number_of_hours <96) { //term5
 }
 
 
-if($number_of_hours>96&&$number_of_hours <117) {// term6
+if($number_of_hours>=96&&$number_of_hours <117) {// term6
 // echo "term6";
   $courses_sql = "SELECT * from courses where  (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1) ";
 // }and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 // }and courses.id!=courses.pre_id
 }
 
-if($number_of_hours>117&&$number_of_hours <=138) { // term7
+if($number_of_hours>=117&&$number_of_hours <138) { // term7
 
   $courses_sql = "SELECT * from courses where (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1) ";
 // })and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' )";
 // } where courses.id!=course.pre_id
 }
 
-if($number_of_hours>138&&$number_of_hours <=159) { // term 8
+if($number_of_hours>=138&&$number_of_hours <159) { // term 8
 
   $courses_sql = "SELECT * from courses where  (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 ) ";
 // }
 }
 
 if ($number_of_hours==0) {
-    $courses_sql = "SELECT * from courses where courses.term=1 ";
+  $courses_sql = "SELECT * from courses where courses.term=1 ";
 }
 }else{
 // print_r("expression");
@@ -150,15 +150,15 @@ if ($number_of_hours!=0) {
     array_push($new_courses_ids,$row['id']);
     array_push($new_courses_names,$row['name']);
   }
- if (strpos($row['pre_id'], ',') !== false) {
+  if (strpos($row['pre_id'], ',') !== false) {
                           // print_r($old_courses);
                     // echo  "***".$row['pre_id']."-----";
-  $ones=array();
-  foreach (explode(",",$row['pre_id']) as  $pre_id) {
+    $ones=array();
+    foreach (explode(",",$row['pre_id']) as  $pre_id) {
                  // echo"-----" .$pre_id."<br>";
 
-    if(in_array($pre_id, $old_courses)){
-      array_push($ones, 1);
+      if(in_array($pre_id, $old_courses)){
+        array_push($ones, 1);
 
                       //  array_push($new_courses_ids,$row['id']);
                        // array_push($new_courses_names,$row['name']);
@@ -202,19 +202,19 @@ if(mysqli_num_rows($result)>0){
 // }
 if($number_of_hours>96&&$number_of_hours <117) {// term6
 
-    $dept="select * from dept where dept.uid='$id'";
-    $result =mysqli_query($con,$dept);
-    while($row = mysqli_fetch_array($result)){
+  $dept="select * from dept where dept.uid='$id'";
+  $result =mysqli_query($con,$dept);
+  while($row = mysqli_fetch_array($result)){
         // echo $row['dept'];
-     $my_dept= $row['dept'];
-     $courses_sql2 = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
-     $result2 =mysqli_query($con,$courses_sql2);
-     while($row = mysqli_fetch_array($result2)){
+   $my_dept= $row['dept'];
+   $courses_sql2 = "SELECT * from courses where courses.Dept='$my_dept' and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+   $result2 =mysqli_query($con,$courses_sql2);
+   while($row = mysqli_fetch_array($result2)){
 // Pre Request
-      array_push($new_courses_ids,$row['id']);
-      array_push($new_courses_names,$row['name']);
-    }
+    array_push($new_courses_ids,$row['id']);
+    array_push($new_courses_names,$row['name']);
   }
+}
 
 }
 
@@ -344,60 +344,60 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
 </fieldset>
 <?php if (sizeof($new_courses_ids)>3) {
   ?>
-<fieldset class='olr-line-ht-150'>
-  <legend> <h3> Course 4</h3></legend>
-  <span class='olr-label olr-required'>Please Select Course 4</span>
-  <select name='c4'>
+  <fieldset class='olr-line-ht-150'>
+    <legend> <h3> Course 4</h3></legend>
+    <span class='olr-label olr-required'>Please Select Course 4</span>
+    <select name='c4'>
 
-    <?php  
+      <?php  
        // while($row = mysqli_fetch_array($result)){  
-    for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
 
+        ?>
+        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+        <?php 
+      }
       ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-    }
-    ?>
-  </select>
+    </select>
 
-</fieldset>
-  <?php } ?>
+  </fieldset>
+<?php } ?>
 <?php if (sizeof($new_courses_ids)>4) {
   ?>
-<fieldset class='olr-line-ht-150'>
-  <legend> <h3> Course 5</h3> </legend>
-  <span class='olr-label olr-required'>Please Select Course 5</span>
-  <select name='c5'>
-    <?php  
+  <fieldset class='olr-line-ht-150'>
+    <legend> <h3> Course 5</h3> </legend>
+    <span class='olr-label olr-required'>Please Select Course 5</span>
+    <select name='c5'>
+      <?php  
        // while($row = mysqli_fetch_array($result)){  
-    for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
 
+        ?>
+        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+        <?php 
+      }
       ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-    }
-    ?>
-  </select>
-</fieldset>
+    </select>
+  </fieldset>
 <?php } ?>
 <?php if (sizeof($new_courses_ids)>5) {
   ?>
-<fieldset class='olr-line-ht-150'>
-  <legend> <h3> Course 6</h3> </legend>
-  <span class='olr-label olr-required'>Please Select Course 6</span>
-  <select name='c6'>
-    <?php  
+  <fieldset class='olr-line-ht-150'>
+    <legend> <h3> Course 6</h3> </legend>
+    <span class='olr-label olr-required'>Please Select Course 6</span>
+    <select name='c6'>
+      <?php  
        // while($row = mysqli_fetch_array($result)){  
-    for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
 
+        ?>
+        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+        <?php 
+      }
       ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-    }
-    ?>
-  </select>
+    </select>
 
-</fieldset>
+  </fieldset>
 <?php }?>
 
 <?php
