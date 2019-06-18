@@ -27,10 +27,10 @@
  if (isset($_POST["pt"])) {
  	$pt = $_POST["pt"];
 
- 	if($number_of_hours>90&&$number_of_hours <=108) {
+ 	if($number_of_hours>=96&&$number_of_hours <117) {
  		$_SESSION['term60']=$pt;
  	}
- 	if($number_of_hours>108&&$number_of_hours <=126) {
+ 	if($number_of_hours>=117&&$number_of_hours <138) {
  		$_SESSION['term70']=$pt;
  	}
  	if($number_of_hours>126&&$number_of_hours <=144) {
@@ -40,7 +40,7 @@
  }
 
 
- if($number_of_hours>90&&$number_of_hours <=108) {
+ if($number_of_hours>=96&&$number_of_hours <117) {
  	$_SESSION['term61']=$c1;
  	$_SESSION['term62']=$c2;
  	$_SESSION['term63']=$c3;
@@ -54,7 +54,7 @@
 // print_r("expression");
 // die();
  }
- if($number_of_hours>108&&$number_of_hours <=126) {
+ if($number_of_hours>=117&&$number_of_hours <138) {
  	$_SESSION['term71']=$c1;
  	$_SESSION['term72']=$c2;
  	$_SESSION['term73']=$c3;
@@ -69,7 +69,8 @@
 // die();
  }
 
- if($number_of_hours>126&&$number_of_hours <=144) {
+if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+
  	$_SESSION['term81']=$c1;
  	$_SESSION['term82']=$c2;
  	$_SESSION['term83']=$c3;

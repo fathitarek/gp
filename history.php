@@ -16,7 +16,7 @@ function storey_sort($building_a, $building_b) {
 }
 
     session_start();
-    // var_dump($_SESSION['term6']);
+    var_dump($_SESSION['term60']);
 
     $id = $_SESSION["uid"];
     $username = $_SESSION["username"];

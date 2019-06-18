@@ -185,7 +185,12 @@ if ($number_of_hours!=0) {
               }
 
 }// while el kebera ely btgeb el data 
-
+  $statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id' and cid='CS481' ";
+  $result =mysqli_query($con,$statment);
+if(mysqli_num_rows($result)==0 && $number_of_hours>=96){
+   array_push($new_courses_ids,'CS481');
+  array_push($new_courses_names,'Computers & Society');
+}
 $courses_sql_fail = "SELECT * from courses , reg  where reg.grade=0 and reg.uid='$id' and reg.cid=courses.id";
 $result =mysqli_query($con,$courses_sql_fail);
 
@@ -503,13 +508,13 @@ if($number_of_hours>117&&$number_of_hours <=138) { // term7// term7
 
     <select name='pt'>
       <?php if ($traning_dept=='db') {?>
-       <option  selected value='IT372'>IT371-Professional Training in Databases 2</option>
+       <option  selected value='IT372'>IT372-Professional Training in Databases 2</option>
      <?php }?>
      <?php if ($traning_dept=='multi') {?>
-       <option  selected value='IT481'>IT480-Professional Training in Multimedia 2</option>
+       <option  selected value='IT481' >IT481-Professional Training in Multimedia 2</option>
      <?php }?>
      <?php if ($traning_dept=='net') {?>
-       <option  selected value='IT332'>IT331-Professional Training in Networking 2</option>
+       <option  selected value='IT332'>IT332-Professional Training in Networking 2</option>
      <?php }?>
      <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
      <!-- <option value='IT332'>IT331-Professional Training in Networking 2</option> -->
@@ -541,13 +546,13 @@ if($number_of_hours>141&&$number_of_hours <=195) {
 
     <select name='pt'>
       <?php if ($traning_dept=='db') {?>
-       <option  selected value='IT373'>IT371-Professional Training in Databases 3</option>
+       <option  selected value='IT373'>IT373-Professional Training in Databases 3</option>
      <?php }?>
      <?php if ($traning_dept=='multi') {?>
-       <option  selected value='IT482'>IT480-Professional Training in Multimedia 3</option>
+       <option  selected value='IT482'>IT482-Professional Training in Multimedia 3</option>
      <?php }?>
      <?php if ($traning_dept=='net') {?>
-       <option  selected value='IT333'>IT331-Professional Training in Networking 3</option>
+       <option  selected value='IT333'>IT333-Professional Training in Networking 3</option>
      <?php }?>
      <!-- <option value='IT331'>IT331-Professional Training in Networking 1</option> -->
      <!-- <option value='IT332'>IT331-Professional Training in Networking 2</option> -->
