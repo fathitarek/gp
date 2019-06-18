@@ -67,14 +67,14 @@ $term6=array("id"=>$row['id'],'name'=>$row['name'],'term'=>6);
 array_push($result_history, $term6);
 
            }
-       if ((isset($_SESSION['term70'])&&$row['id']==$_SESSION['term70'])||(isset($_SESSION['term71'])&&$row['id']==$_SESSION['term61'])||(isset($_SESSION['term72'])&&$row['id']==$_SESSION['term72'])||(isset($_SESSION['term73'])&&$row['id']==$_SESSION['term73'])||(isset($_SESSION['term74'])&&$row['id']==$_SESSION['term74'])||(isset($_SESSION['term75'])&&$row['id']==$_SESSION['term75'])||(isset($_SESSION['term76'])&&$row['id']==$_SESSION['term76'])) {
+       if ((isset($_SESSION['term70'])&&$row['id']==$_SESSION['term70'])||(isset($_SESSION['term71'])&&$row['id']==$_SESSION['term71'])||(isset($_SESSION['term72'])&&$row['id']==$_SESSION['term72'])||(isset($_SESSION['term73'])&&$row['id']==$_SESSION['term73'])||(isset($_SESSION['term74'])&&$row['id']==$_SESSION['term74'])||(isset($_SESSION['term75'])&&$row['id']==$_SESSION['term75'])||(isset($_SESSION['term76'])&&$row['id']==$_SESSION['term76'])) {
                $row['term']=7;
                  // echo "<li> ". $row['id'].'-'.$row['name']."  In  Term : 7</li>";
 $term7=array("id"=>$row['id'],'name'=>$row['name'],'term'=>7);
 array_push($result_history, $term7);
            }
        
-   if ((isset($_SESSION['term80'])&&$row['id']==$_SESSION['term80'])||(isset($_SESSION['term81'])&&$row['id']==$_SESSION['term61'])||(isset($_SESSION['term82'])&&$row['id']==$_SESSION['term82'])||(isset($_SESSION['term83'])&&$row['id']==$_SESSION['term83'])||(isset($_SESSION['term84'])&&$row['id']==$_SESSION['term84'])||(isset($_SESSION['term85'])&&$row['id']==$_SESSION['term85'])||(isset($_SESSION['term86'])&&$row['id']==$_SESSION['term86'])) {
+   if ((isset($_SESSION['term80'])&&$row['id']==$_SESSION['term80'])||(isset($_SESSION['term81'])&&$row['id']==$_SESSION['term81'])||(isset($_SESSION['term82'])&&$row['id']==$_SESSION['term82'])||(isset($_SESSION['term83'])&&$row['id']==$_SESSION['term83'])||(isset($_SESSION['term84'])&&$row['id']==$_SESSION['term84'])||(isset($_SESSION['term85'])&&$row['id']==$_SESSION['term85'])||(isset($_SESSION['term86'])&&$row['id']==$_SESSION['term86'])) {
                $row['term']=8;  
                  // echo "<li> ". $row['id'].'-'.$row['name']."  In  Term : 8</li>";
                  $term8=array("id"=>$row['id'],'name'=>$row['name'],'term'=>8);

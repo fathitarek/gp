@@ -112,7 +112,7 @@
  if (isset($_POST["c6"])) {
  	$result6 =mysqli_query($con,$exist6);
  }
- print_r(mysqli_num_rows($result1));
+ // print_r(mysqli_num_rows($result1));
 
  if(mysqli_num_rows($result1)>0){
  	$insertCourse1= "update reg   set reg.grade=1 where  reg.uid='$id' and cid='$c1'";
