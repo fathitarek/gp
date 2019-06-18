@@ -71,7 +71,7 @@
     }
 if ($number_of_hours>=18&&$number_of_hours <36) {// term2
   echo "term2";
-  $courses_sql = "SELECT * from courses where courses.term=2 and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
+  $courses_sql = "SELECT * from courses where (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 ) and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
 if ($number_of_hours>=36&&$number_of_hours <54) { //term3
   echo "term3";
