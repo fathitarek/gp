@@ -57,11 +57,9 @@ $result_history=array();
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_array($result)){
         if ($row['term']==0) {
-            // if (isset($_SESSION['term6'])) {
-                
-            
+           
            if ((isset($_SESSION['term60'])&&$row['id']==$_SESSION['term60'])||(isset($_SESSION['term61'])&&$row['id']==$_SESSION['term61'])||(isset($_SESSION['term62'])&&$row['id']==$_SESSION['term62'])||(isset($_SESSION['term63'])&&$row['id']==$_SESSION['term63'])||(isset($_SESSION['term64'])&&$row['id']==$_SESSION['term64'])||(isset($_SESSION['term65'])&&$row['id']==$_SESSION['term65'])||(isset($_SESSION['term66'])&&$row['id']==$_SESSION['term66'])) {
-               $row['term']=6;
+               // $row['term']=6; die();
                  // echo "<li> ". $row['id'].'-'.$row['name']."  In  Term : 6</li>";
 $term6=array("id"=>$row['id'],'name'=>$row['name'],'term'=>6);
 array_push($result_history, $term6);

@@ -16,11 +16,18 @@
  $number_of_sub=mysqli_num_rows($result);
 // var_dump($number_of_sub);
  $number_of_hours=$number_of_sub*3;
+
  $c1 = $_POST["c1"];
  $c2 = $_POST["c2"];
  $c3 = $_POST["c3"];
- $c4 = $_POST["c4"];
- $c5 = $_POST["c5"];
+
+ if (isset($_POST["c4"])) {
+ 	$c4 = $_POST["c4"];
+ }
+ if (isset($_POST["c5"])) {
+ 	$c5 = $_POST["c5"];
+ }
+ 
  if (isset($_POST["c6"])) {
  	$c6 = $_POST["c6"];
  }
