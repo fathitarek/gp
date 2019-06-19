@@ -266,9 +266,10 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
 
 }
 
-   $new_courses_ids=array_unique($new_courses_ids);
-      $new_courses_names=array_unique($new_courses_names);
-
+   $new_courses_ids=array_filter(array_unique($new_courses_ids));
+      $new_courses_names=array_filter(array_unique($new_courses_names));
+      print_r(array_key_exists(8, $new_courses_ids)); 
+print_r($new_courses_ids);
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 //    // echo $statment1;
@@ -313,11 +314,13 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
     <?php  
        // while($row = mysqli_fetch_array($result)){  
     for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+if (array_key_exists($i, $new_courses_ids)) {
+  
 
       ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $i. $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
       <?php 
-    }
+  }  }
     ?>
 
 
@@ -332,11 +335,11 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
     <?php  
        // while($row = mysqli_fetch_array($result)){  
     for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-
+if (array_key_exists($i, $new_courses_ids)) {
       ?>
       <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
       <?php 
-    }
+    }}
     ?>
 
   </select>
@@ -349,11 +352,11 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
     <?php  
        // while($row = mysqli_fetch_array($result)){  
     for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-
+if (array_key_exists($i, $new_courses_ids)) {
       ?>
       <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
       <?php 
-    }
+    }}
     ?>
   </select>
 </fieldset>
@@ -367,11 +370,11 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
       <?php  
        // while($row = mysqli_fetch_array($result)){  
       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-
+if (array_key_exists($i, $new_courses_ids)) {
         ?>
         <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
         <?php 
-      }
+      }}
       ?>
     </select>
 
@@ -386,11 +389,11 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
       <?php  
        // while($row = mysqli_fetch_array($result)){  
       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-
+if (array_key_exists($i, $new_courses_ids)) {
         ?>
         <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
         <?php 
-      }
+      }}
       ?>
     </select>
   </fieldset>
@@ -404,11 +407,11 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
       <?php  
        // while($row = mysqli_fetch_array($result)){  
       for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-
+if (array_key_exists($i, $new_courses_ids)) {
         ?>
         <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
         <?php 
-      }
+      }}
       ?>
     </select>
 
