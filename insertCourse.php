@@ -266,7 +266,9 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
 
 }
 
-   // var_dump($new_courses_ids);
+   $new_courses_ids=array_unique($new_courses_ids);
+      $new_courses_names=array_unique($new_courses_names);
+
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 //    // echo $statment1;
