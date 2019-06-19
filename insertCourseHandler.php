@@ -39,12 +39,16 @@ if (isset($_POST["c2"])) {
  	$pt = $_POST["pt"];
 
  	if($number_of_hours>=96&&$number_of_hours <117) {
+ 		// if($number_of_hours>=96&&$number_of_hours <117) {// term6
+
  		$_SESSION['term60']=$pt;
  	}
+
  	if($number_of_hours>=117&&$number_of_hours <138) {
  		$_SESSION['term70']=$pt;
  	}
- 	if($number_of_hours>126&&$number_of_hours <=144) {
+ 	// if($number_of_hours>126&&$number_of_hours <=144) {
+ 	if($number_of_hours>=138&&$number_of_hours <159) { // term 8
  		$_SESSION['term80']=$pt;
 
  	}	
