@@ -152,7 +152,7 @@ if ($number_of_hours!=0) {
  // print_r("expression");
                         // echo strpos($row['pre_id'], ',');
   // if ($row['id']=='CS401' && $number_of_hours>117&&$number_of_hours <=138) {
-  if ($row['id']=='CS401' && $_SESSION['num_term']==7) {
+  if ($row['id']=='CS401' &&( $_SESSION['num_term']==7||($number_of_hours>117&&$number_of_hours <=138))) {
     array_push($new_courses_ids,$row['id']);
     array_push($new_courses_names,$row['name']);
   }
