@@ -254,7 +254,7 @@ if (isset($_POST["pt"])) {
 
 	$flag7 = mysqli_query($con,$insertCourse7);
 }
-if($flag1&&$flag2&&$flag3&&$flag4&&$flag5&&$flag6){
+if((isset($flag1)&&$flag1)||(isset($flag2)&&$flag2)||(isset($flag3)&&$flag3)||(isset($flag4)&&$flag4)||(isset($flag5)&&$flag5)||(isset($flag6)&&$flag6)){
 	//echo "Done";
 	++$_SESSION['num_term'];
 	header("Location: sh.php");

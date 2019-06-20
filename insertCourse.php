@@ -39,7 +39,14 @@
   echo "<h3>welcome " .$_SESSION['username']."</h3>";
   $con = mysqli_connect("localhost","root","") or die (" can not establish connection ");
   mysqli_select_db($con,"test1") or die (" can not select db ");
+$gpa_array=array();
+$gpa_sql="select * from gpa_student where id='$id'";
+$gpa_result =mysqli_query($con,$gpa_sql);
+while($row_gpa = mysqli_fetch_array($gpa_result)){
+    array_push($gpa_array,$row_gpa['gpa']);
+  }
 
+  echo "ggg".$gpa_array[0];
   $statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id'";
   $result =mysqli_query($con,$statment);
   if ($result==false)
@@ -380,7 +387,13 @@ if (array_key_exists($i, $new_courses_ids)) {
 
   </fieldset>
 <?php } ?>
-<?php if (sizeof($new_courses_ids)>4) {
+
+
+<?php 
+ if ($gpa_array[0]>2.0) {
+   
+ // check gpa
+if (sizeof($new_courses_ids)>4) {
   ?>
   <fieldset class='olr-line-ht-150'>
     <legend> <h3> Course 5</h3> </legend>
@@ -416,7 +429,10 @@ if (array_key_exists($i, $new_courses_ids)) {
     </select>
 
   </fieldset>
-<?php }?>
+<?php }
+
+}//end check gpa
+?>
 
 <?php
 $statment1="select * from reg where reg.uid='$id' ";
