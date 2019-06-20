@@ -39,14 +39,9 @@
   echo "<h3>welcome " .$_SESSION['username']."</h3>";
   $con = mysqli_connect("localhost","root","") or die (" can not establish connection ");
   mysqli_select_db($con,"test1") or die (" can not select db ");
-$gpa_array=array();
-$gpa_sql="select * from gpa_student where id='$id'";
-$gpa_result =mysqli_query($con,$gpa_sql);
-while($row_gpa = mysqli_fetch_array($gpa_result)){
-    array_push($gpa_array,$row_gpa['gpa']);
-  }
 
-  echo "ggg".$gpa_array[0];
+
+  // echo "ggg".$gpa_array[0];
   $statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id'";
   $result =mysqli_query($con,$statment);
   if ($result==false)
@@ -100,7 +95,7 @@ if($number_of_hours>=75&&$number_of_hours <96) { //term5
 }
 
 if($number_of_hours>=96&&$number_of_hours <117) {// term6
-echo "term6";
+  echo "term6";
 // ++$_SESSION['no_term'];
   $courses_sql = "SELECT * from courses where  (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 )and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1) ";
 // }and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
@@ -198,13 +193,13 @@ if ($number_of_hours!=0) {
               }
 
 }// while el kebera ely btgeb el data 
-  $statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id' and cid='CS481' ";
-  $result =mysqli_query($con,$statment);
+$statment = "SELECT * from reg WHERE reg.grade=1 and  uid = '$id' and cid='CS481' ";
+$result =mysqli_query($con,$statment);
 // if(mysqli_num_rows($result)==0 && $number_of_hours>=96){
-  if (mysqli_num_rows($result)==0 &&$_SESSION['num_term']>=7) {
-    
-   array_push($new_courses_ids,'CS481');
-  array_push($new_courses_names,'Computers & Society');
+if (mysqli_num_rows($result)==0 &&$_SESSION['num_term']>=7) {
+
+ array_push($new_courses_ids,'CS481');
+ array_push($new_courses_names,'Computers & Society');
 }
 $courses_sql_fail = "SELECT * from courses , reg  where reg.grade=0 and reg.uid='$id' and reg.cid=courses.id";
 $result =mysqli_query($con,$courses_sql_fail);
@@ -273,9 +268,9 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
 
 }
 
-   $new_courses_ids=array_filter(array_unique($new_courses_ids));
-      $new_courses_names=array_filter(array_unique($new_courses_names));
-      print_r(array_key_exists(8, $new_courses_ids)); 
+$new_courses_ids=array_filter(array_unique($new_courses_ids));
+$new_courses_names=array_filter(array_unique($new_courses_names));
+print_r(array_key_exists(8, $new_courses_ids)); 
 print_r($new_courses_ids);
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
@@ -321,115 +316,121 @@ print_r($new_courses_ids);
     <?php  
        // while($row = mysqli_fetch_array($result)){  
     for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
-  
-
-      ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $i. $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-  }  }
-    ?>
+      if (array_key_exists($i, $new_courses_ids)) {
 
 
-  </select>
-
-</fieldset>
-
-<fieldset class='olr-line-ht-150'>
-  <legend> <h3> Course 2</h3></legend>
-  <span class='olr-label olr-required'>Please Select Course 2</span>
-  <select name='c2'>
-    <?php  
-       // while($row = mysqli_fetch_array($result)){  
-    for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
-      ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-    }}
-    ?>
-
-  </select>
-</fieldset>
-
-<fieldset class='olr-line-ht-150'>
-  <legend> <h3> Course 3</h3></legend>
-  <span class='olr-label olr-required'>Please Select Course 3</span>
-  <select name='c3'>
-    <?php  
-       // while($row = mysqli_fetch_array($result)){  
-    for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
-      ?>
-      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-      <?php 
-    }}
-    ?>
-  </select>
-</fieldset>
-<?php if (sizeof($new_courses_ids)>3) {
-  ?>
-  <fieldset class='olr-line-ht-150'>
-    <legend> <h3> Course 4</h3></legend>
-    <span class='olr-label olr-required'>Please Select Course 4</span>
-    <select name='c4'>
-
-      <?php  
-       // while($row = mysqli_fetch_array($result)){  
-      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
         ?>
-        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo  $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
         <?php 
-      }}
+      }  }
       ?>
+
+
     </select>
 
   </fieldset>
-<?php } ?>
+
+  <fieldset class='olr-line-ht-150'>
+    <legend> <h3> Course 2</h3></legend>
+    <span class='olr-label olr-required'>Please Select Course 2</span>
+    <select name='c2'>
+      <?php  
+       // while($row = mysqli_fetch_array($result)){  
+      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+        if (array_key_exists($i, $new_courses_ids)) {
+          ?>
+          <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+          <?php 
+        }}
+        ?>
+
+      </select>
+    </fieldset>
+
+    <fieldset class='olr-line-ht-150'>
+      <legend> <h3> Course 3</h3></legend>
+      <span class='olr-label olr-required'>Please Select Course 3</span>
+      <select name='c3'>
+        <?php  
+       // while($row = mysqli_fetch_array($result)){  
+        for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+          if (array_key_exists($i, $new_courses_ids)) {
+            ?>
+            <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+            <?php 
+          }}
+          ?>
+        </select>
+      </fieldset>
+      <?php if (sizeof($new_courses_ids)>3) {
+        ?>
+        <fieldset class='olr-line-ht-150'>
+          <legend> <h3> Course 4</h3></legend>
+          <span class='olr-label olr-required'>Please Select Course 4</span>
+          <select name='c4'>
+
+            <?php  
+       // while($row = mysqli_fetch_array($result)){  
+            for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+              if (array_key_exists($i, $new_courses_ids)) {
+                ?>
+                <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+                <?php 
+              }}
+              ?>
+            </select>
+
+          </fieldset>
+        <?php } ?>
 
 
-<?php 
- if ($gpa_array[0]>2.0) {
-   
+        <?php 
+         $gpa_array=array();
+  $gpa_sql="select * from gpa_student where id='$id'";
+  $gpa_result =mysqli_query($con,$gpa_sql);
+  while($row_gpa = mysqli_fetch_array($gpa_result)){
+    array_push($gpa_array,$row_gpa['gpa']);
+  }
+        if ($gpa_array[0]>2.0||$_SESSION['num_term']==1) {
+
  // check gpa
-if (sizeof($new_courses_ids)>4) {
-  ?>
-  <fieldset class='olr-line-ht-150'>
-    <legend> <h3> Course 5</h3> </legend>
-    <span class='olr-label olr-required'>Please Select Course 5</span>
-    <select name='c5'>
-      <?php  
+          if (sizeof($new_courses_ids)>4) {
+            ?>
+            <fieldset class='olr-line-ht-150'>
+              <legend> <h3> Course 5</h3> </legend>
+              <span class='olr-label olr-required'>Please Select Course 5</span>
+              <select name='c5'>
+                <?php  
        // while($row = mysqli_fetch_array($result)){  
-      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
-        ?>
-        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-        <?php 
-      }}
-      ?>
-    </select>
-  </fieldset>
-<?php } ?>
-<?php if (sizeof($new_courses_ids)>5) {
-  ?>
-  <fieldset class='olr-line-ht-150'>
-    <legend> <h3> Course 6</h3> </legend>
-    <span class='olr-label olr-required'>Please Select Course 6</span>
-    <select name='c6'>
-      <?php  
+                for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+                  if (array_key_exists($i, $new_courses_ids)) {
+                    ?>
+                    <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+                    <?php 
+                  }}
+                  ?>
+                </select>
+              </fieldset>
+            <?php } ?>
+            <?php if (sizeof($new_courses_ids)>5) {
+              ?>
+              <fieldset class='olr-line-ht-150'>
+                <legend> <h3> Course 6</h3> </legend>
+                <span class='olr-label olr-required'>Please Select Course 6</span>
+                <select name='c6'>
+                  <?php  
        // while($row = mysqli_fetch_array($result)){  
-      for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
-if (array_key_exists($i, $new_courses_ids)) {
-        ?>
-        <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
-        <?php 
-      }}
-      ?>
-    </select>
+                  for ($i=0; $i <sizeof($new_courses_ids) ; $i++) { 
+                    if (array_key_exists($i, $new_courses_ids)) {
+                      ?>
+                      <option value="<?php echo $new_courses_ids [$i];?>"><?php  echo $new_courses_ids [$i].'-'. $new_courses_names [$i];  ?></option>
+                      <?php 
+                    }}
+                    ?>
+                  </select>
 
-  </fieldset>
-<?php }
+                </fieldset>
+              <?php }
 
 }//end check gpa
 ?>
