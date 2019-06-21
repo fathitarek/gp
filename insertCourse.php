@@ -62,7 +62,7 @@
     // echo "nummm";
     // var_dump($number_of_hours);
 // die();
-    if ($number_of_hours>159) {
+    if ($number_of_hours>=159) {
       header("Location: profile.php");
     }
 if ($number_of_hours>=18&&$number_of_hours <36) {// term2

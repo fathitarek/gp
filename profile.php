@@ -81,32 +81,36 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
           <tr>
             <td class="text-primary">Period </td>
             <td><?php  
-              $statment1="select * from reg where reg.uid='$id' ";
-              $result =mysqli_query($con,$statment1);
-              if(mysqli_num_rows($result)==0){
-echo 1;}
-            elseif(isset($_SESSION['num_term'])){ 
-              echo $_SESSION['num_term']-1; }
+            $statment1="select * from reg where reg.uid='$id' ";
+            $result =mysqli_query($con,$statment1);
+            if(mysqli_num_rows($result)==0){
+              echo 1;}
+              elseif(isset($_SESSION['num_term'])){ 
+                echo $_SESSION['num_term']-1; }
 
-else{}
-              ?></td>
-            </tr>
-            <tr>
-              <td class="text-primary">GPA </td>
-              <td><?php  echo $gpa_array[0];  ?></td>
-            </tr>
-            <tr>
-              <td class="text-primary">Achieved Hours </td>
-              <?php
-              $statment1="select * from reg where reg.uid='$id' ";
-              $result =mysqli_query($con,$statment1);
-              if(mysqli_num_rows($result)>0){
-                $number_of_sub=mysqli_num_rows($result);
+                else{}
+                  ?></td>
+              </tr>
+              <tr>
+                <td class="text-primary">GPA </td>
+                <td><?php  echo $gpa_array[0];  ?></td>
+              </tr>
+              <tr>
+                <td class="text-primary">Achieved Hours </td>
+                <?php
+                $statment1="select * from reg where reg.uid='$id' ";
+                $result =mysqli_query($con,$statment1);
+                if(mysqli_num_rows($result)>0){
+                  $number_of_sub=mysqli_num_rows($result);
 
-                $number_of_hours=$number_of_sub*3;
+                  $number_of_hours=$number_of_sub*3;
+                  if($number_of_hours<=54){
+                   echo "<td>".$number_of_hours."</td>";  
+                 }
     if ($number_of_hours>54&&$number_of_hours <=75) {//term4
 
       $number_of_hours-=3;
+      echo "<td>".$number_of_hours."</td>"; 
     }
 if($number_of_hours>75&&$number_of_hours <=96) { //term5
 
@@ -132,8 +136,6 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
   $number_of_hours-=15;
   echo "<td>".$number_of_hours."</td>";  
 
-}else{
- echo "<td>".$number_of_hours."</td>";  
 }
 }else{?>
  <td> Not Register Courses Till Now</td>

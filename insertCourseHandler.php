@@ -88,7 +88,7 @@ if (isset($_POST["c2"])) {
  }
  if($number_of_hours>=117&&$number_of_hours <138) {
  	if (isset($_POST["pt"])) {
- 		$_SESSION['term670']=$_POST["pt"];
+ 		$_SESSION['term70']=$_POST["pt"];
  	}
  	if (isset($_POST["c1"])) {	
  		$_SESSION['term71']=$c1;
