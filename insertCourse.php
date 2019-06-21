@@ -22,16 +22,10 @@
       <h2 style='text-align:center;'>Online Registration Demo MAX<br />Online Registration</h2>
       <p>Required fields are in <b>BOLD</b> </p>
 
-      <!-- list of required fields -->
-
-
-
-
-
-    </select>
-    <!-- <br /> -->
-
-  </select>
+    <?php if (isset($_GET['err'])&&$_GET['err']==1) {
+      echo "<h3 style='color:red;'> try again , Something Wrong  </h3>"; 
+    }
+    ?>
   <?php
   session_start();
   $id = $_SESSION["uid"];
@@ -270,8 +264,8 @@ if($number_of_hours>=138&&$number_of_hours <159) { // term 8
 
 $new_courses_ids=array_filter(array_unique($new_courses_ids));
 $new_courses_names=array_filter(array_unique($new_courses_names));
-print_r(array_key_exists(8, $new_courses_ids)); 
-print_r($new_courses_ids);
+// print_r(array_key_exists(8, $new_courses_ids)); 
+// print_r($new_courses_ids);
 
 //   $statment1 = "SELECT * from courses where courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 //    // echo $statment1;
@@ -331,7 +325,7 @@ if (sizeof($new_courses_ids)>0) {
     </select>
 
   </fieldset>
-}
+<?php }
 ?>
 <?php 
 if (sizeof($new_courses_ids)>1) {
@@ -352,7 +346,7 @@ if (sizeof($new_courses_ids)>1) {
 
       </select>
     </fieldset>
-<?php }?>
+<?php } ?>
 <?php if (sizeof($new_courses_ids)>2) {
         ?>
     <fieldset class='olr-line-ht-150'>
@@ -370,7 +364,7 @@ if (sizeof($new_courses_ids)>1) {
           ?>
         </select>
       </fieldset>
-    <?php }?>
+    <?php } ?>
       <?php if (sizeof($new_courses_ids)>3) {
         ?>
         <fieldset class='olr-line-ht-150'>

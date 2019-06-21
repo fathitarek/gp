@@ -275,7 +275,9 @@ if((isset($flag1)&&$flag1)||(isset($flag2)&&$flag2)||(isset($flag3)&&$flag3)||(i
 	$_SESSION["isReg"] = true;
 }
 else {
-	echo "Error ".mysqli_error($con);
+	//echo "Error ".mysqli_error($con);
+		header("Location:insertCourse.php?err=1");
+
 }
 
 ?>
