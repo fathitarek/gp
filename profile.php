@@ -105,25 +105,32 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
 if($number_of_hours>=75&&$number_of_hours <96) { //term5
 
   $number_of_hours-=6;
+  echo "<td>".$number_of_hours."</td>";  
+
 }
 if($number_of_hours>=96&&$number_of_hours <117) {// term6
 
   $number_of_hours-=9;
+  echo "<td>".$number_of_hours."</td>";  
+
 }
 if($number_of_hours>=117&&$number_of_hours <138) { // term7
 
   $number_of_hours-=12;
+  echo "<td>".$number_of_hours."</td>";  
+
 }
 if($number_of_hours>=138&&$number_of_hours <159) { // term 8
 
   $number_of_hours-=15;
+  echo "<td>".$number_of_hours."</td>";  
+
 }
 }else{?>
  <td> Not Register Courses Till Now</td>
 
 <?php  }
 ?>
-<td><?php  echo $number_of_hours;  ?></td>
 </tr>
 </tbody>
 </table>
