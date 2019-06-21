@@ -308,7 +308,9 @@ print_r($new_courses_ids);
 // print_r($new_courses_names);
 
 ?>
-
+<?php 
+if (sizeof($new_courses_ids)>0) {
+ ?>
 <fieldset class='olr-line-ht-150'>
   <legend> <h3> Course 1</h3></legend>
   <span class='olr-label'>Please Select Course 1 </span>
@@ -329,7 +331,11 @@ print_r($new_courses_ids);
     </select>
 
   </fieldset>
-
+}
+?>
+<?php 
+if (sizeof($new_courses_ids)>1) {
+ ?>
   <fieldset class='olr-line-ht-150'>
     <legend> <h3> Course 2</h3></legend>
     <span class='olr-label olr-required'>Please Select Course 2</span>
@@ -346,7 +352,9 @@ print_r($new_courses_ids);
 
       </select>
     </fieldset>
-
+<?php }?>
+<?php if (sizeof($new_courses_ids)>2) {
+        ?>
     <fieldset class='olr-line-ht-150'>
       <legend> <h3> Course 3</h3></legend>
       <span class='olr-label olr-required'>Please Select Course 3</span>
@@ -362,6 +370,7 @@ print_r($new_courses_ids);
           ?>
         </select>
       </fieldset>
+    <?php }?>
       <?php if (sizeof($new_courses_ids)>3) {
         ?>
         <fieldset class='olr-line-ht-150'>

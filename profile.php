@@ -81,8 +81,14 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
           <tr>
             <td class="text-primary">Period </td>
             <td><?php  
-            if(isset($_SESSION['num_term'])){ 
-              echo $_SESSION['num_term']-1; }else{ echo 1;}
+              $statment1="select * from reg where reg.uid='$id' ";
+              $result =mysqli_query($con,$statment1);
+              if(mysqli_num_rows($result)==0){
+echo 1;}
+            elseif(isset($_SESSION['num_term'])){ 
+              echo $_SESSION['num_term']-1; }
+
+else{}
               ?></td>
             </tr>
             <tr>
@@ -112,7 +118,6 @@ if($number_of_hours>96&&$number_of_hours <=117) {// term6
 
   $number_of_hours-=9;
   echo "<td>".$number_of_hours."</td>";  
-  echo "Fff";
 
 }
 if($number_of_hours>117&&$number_of_hours <=138) { // term7
