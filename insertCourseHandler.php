@@ -37,25 +37,33 @@ if (isset($_POST["c2"])) {
  }
  if (isset($_POST["pt"])) {
  	$pt = $_POST["pt"];
+// var_dump($number_of_hours);
+ 	// if($number_of_hours>=96&&$number_of_hours <117) {
+ 	// // if($number_of_hours>=96&&$number_of_hours <117) {// term6
 
- 	if($number_of_hours>=96&&$number_of_hours <117) {
- 		// if($number_of_hours>=96&&$number_of_hours <117) {// term6
+ 	// 	// if($number_of_hours>=96&&$number_of_hours <117) {// term6
 
- 		$_SESSION['term60']=$pt;
- 	}
+ 	// 	$_SESSION['term60']=$_POST["pt"];
+ 	// 	// var_dump($_SESSION['term60']);
+ 	// }
 
- 	if($number_of_hours>=117&&$number_of_hours <138) {
- 		$_SESSION['term70']=$pt;
- 	}
- 	// if($number_of_hours>126&&$number_of_hours <=144) {
- 	if($number_of_hours>=138&&$number_of_hours <159) { // term 8
- 		$_SESSION['term80']=$pt;
+ 	// if($number_of_hours>=117&&$number_of_hours <138) {
+ 	// 	$_SESSION['term70']=$_POST["pt"];
+ 	// //	var_dump($_SESSION['term70']);
+ 	// }
+ 	// // if($number_of_hours>126&&$number_of_hours <=144) {
+ 	// if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+ 	// 	$_SESSION['term80']=$_POST["pt"];
+ 	// //	var_dump($_SESSION['term80']);
 
- 	}	
+ 	// }	
  }
-
+// dd();
 
  if($number_of_hours>=96&&$number_of_hours <117) {
+ 	if (isset($_POST["pt"])) {
+ 		$_SESSION['term60']=$_POST["pt"];
+ 	}
  	if (isset($_POST["c1"])) {
  		$_SESSION['term61']=$c1;
  	}
@@ -79,6 +87,9 @@ if (isset($_POST["c2"])) {
 // die();
  }
  if($number_of_hours>=117&&$number_of_hours <138) {
+ 	if (isset($_POST["pt"])) {
+ 		$_SESSION['term670']=$_POST["pt"];
+ 	}
  	if (isset($_POST["c1"])) {	
  		$_SESSION['term71']=$c1;
  	}
@@ -104,6 +115,9 @@ if (isset($_POST["c2"])) {
  }
 
 if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+	if (isset($_POST["pt"])) {
+ 		$_SESSION['term80']=$_POST["pt"];
+ 	}
 	if (isset($_POST["c1"])) {
 		$_SESSION['term81']=$c1;
 	}

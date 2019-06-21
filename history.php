@@ -16,7 +16,7 @@ function storey_sort($building_a, $building_b) {
 }
 
     session_start();
-    var_dump($_SESSION['term80']);
+    var_dump($_SESSION['term60']);
 
     $id = $_SESSION["uid"];
     $username = $_SESSION["username"];
@@ -92,7 +92,8 @@ foreach($result_history as $row) {
 ?>
 </ul>
     </div>
-<?php     var_dump($_SESSION['term80']);
+<?php   
+  var_dump($_SESSION['term60']);
 ?>
 </body>
 </html>

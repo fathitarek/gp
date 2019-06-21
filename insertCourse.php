@@ -215,7 +215,7 @@ if(mysqli_num_rows($result)>0){
 // var_dump($number_of_sub);
   $number_of_hours=$number_of_sub*3;
 // }
-if($number_of_hours>96&&$number_of_hours <117) {// term6
+if($number_of_hours>=96&&$number_of_hours <117) {// term6
 
   $dept="select * from dept where dept.uid='$id'";
   $result =mysqli_query($con,$dept);
@@ -234,7 +234,7 @@ if($number_of_hours>96&&$number_of_hours <117) {// term6
 }
 
 
-if($number_of_hours>117&&$number_of_hours <=138) { // term7
+if($number_of_hours>=117&&$number_of_hours <138) { // term7
 
   $dept="select * from dept where dept.uid='$id'";
   $result =mysqli_query($con,$dept);
@@ -250,7 +250,7 @@ if($number_of_hours>117&&$number_of_hours <=138) { // term7
 }
 }   
 
-if($number_of_hours>138&&$number_of_hours <=159) { // term 8
+if($number_of_hours>=138&&$number_of_hours <159) { // term 8
 
   $dept="select * from dept where dept.uid='$id'";
   $result =mysqli_query($con,$dept);

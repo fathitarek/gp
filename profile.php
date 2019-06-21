@@ -52,44 +52,100 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
             </tr>
             <tr>
               <td class="text-primary">Department </td>
-              <td><?php  echo $department  ?></td>
+              <?php
+              $insert = "select * from dept where uid='$id'";
+              $result = mysqli_query($con,$insert);
+              if(mysqli_num_rows($result)>0){
+                while($row = mysqli_fetch_array($result)){
+                 if ($row['dept']=='CS') {
+                  echo "<td> your Minor Department is Computer science (". $row['dept'].")</td>";
+                }
+                if ($row['dept']=='SE') {
+                  echo "<td> your Minor Department is Software engineering (". $row['dept'].")</td>";
+                }
+                if ($row['dept']=='GM') {
+                  echo "<td> your Minor Department is Graphics & multimedia (". $row['dept'].")</td>";
+                }
+                if ($row['dept']=='IS') {
+                  echo "<td> your Minor Department is Informations systems (". $row['dept'].")</td>";
+                }
+
+
+              }
+            }else {?>
+              <td> Not Register Department Till Now</td>
+            <?php }
+            ?>
+
+          </tr>
+          <tr>
+            <td class="text-primary">Period </td>
+            <td><?php  
+            if(isset($_SESSION['num_term'])){ 
+              echo $_SESSION['num_term']; }else{ echo 1;}
+              ?></td>
             </tr>
             <tr>
-              <td class="text-primary">Period </td>
-              <td><?php  
-              if(isset($_SESSION['num_term'])){ 
-                echo $_SESSION['num_term']; }else{ echo 1;}
-                ?></td>
-              </tr>
-              <tr>
-                <td class="text-primary">GPA </td>
-                <td><?php  echo $gpa_array[0];  ?></td>
-              </tr>
-              <tr>
-                <td class="text-primary">Achieved Hours </td>
-                <td><?php  echo $AchievedHours  ?></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+              <td class="text-primary">GPA </td>
+              <td><?php  echo $gpa_array[0];  ?></td>
+            </tr>
+            <tr>
+              <td class="text-primary">Achieved Hours </td>
+              <?php
+              $statment1="select * from reg where reg.uid='$id' ";
+              $result =mysqli_query($con,$statment1);
+              if(mysqli_num_rows($result)>0){
+                $number_of_sub=mysqli_num_rows($result);
 
-      </div>
-      
-      <div class="jumbotron" style="display:flex;">
-        <div class="card" style="width: 100%;">
-          <div class="btn-group-vertical" style="width:100%;">
-            <a class="btn btn-outline-primary" href="insertCourse.php" role="button"> Register Courses</a>
+                $number_of_hours=$number_of_sub*3;
+    if ($number_of_hours>=54&&$number_of_hours <75) {//term4
 
-            <a class="btn btn-outline-primary" href="#" role="button">Minor Study</a>
-            <a class="btn btn-outline-primary" href="#" role="button">Community&amp;E-Learning</a>
-            <a class="btn btn-outline-primary" href="#" role="button">Open Access</a>
-            <a class="btn btn-outline-primary" href="#" role="button">Link</a>
-            <a class="btn btn-outline-primary" href="department.php" role="button">Minor Department</a>
-            <a class="btn btn-outline-primary" href="history.php" role="button">History</a>
+      $number_of_hours-=3;
+    }
+if($number_of_hours>=75&&$number_of_hours <96) { //term5
 
-            <a class="btn btn-outline-primary" href="#" role="button">...</a>
-          </div></div></div>
-        </div>
-        
+  $number_of_hours-=6;
+}
+if($number_of_hours>=96&&$number_of_hours <117) {// term6
 
-      </body></html>
+  $number_of_hours-=9;
+}
+if($number_of_hours>=117&&$number_of_hours <138) { // term7
+
+  $number_of_hours-=12;
+}
+if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+
+  $number_of_hours-=15;
+}
+}else{?>
+ <td> Not Register Courses Till Now</td>
+
+<?php  }
+?>
+<td><?php  echo $number_of_hours;  ?></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+
+<div class="jumbotron" style="display:flex;">
+  <div class="card" style="width: 100%;">
+    <div class="btn-group-vertical" style="width:100%;">
+      <a class="btn btn-outline-primary" href="insertCourse.php" role="button"> Register Courses</a>
+
+      <a class="btn btn-outline-primary" href="#" role="button">Minor Study</a>
+      <a class="btn btn-outline-primary" href="#" role="button">Community&amp;E-Learning</a>
+      <a class="btn btn-outline-primary" href="#" role="button">Open Access</a>
+      <a class="btn btn-outline-primary" href="#" role="button">Link</a>
+      <a class="btn btn-outline-primary" href="department.php" role="button">Minor Department</a>
+      <a class="btn btn-outline-primary" href="history.php" role="button">History</a>
+
+      <a class="btn btn-outline-primary" href="#" role="button">...</a>
+    </div></div></div>
+  </div>
+
+
+</body></html>
