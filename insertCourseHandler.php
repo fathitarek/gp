@@ -270,7 +270,7 @@ if (isset($_POST["pt"])) {
 }
 if((isset($flag1)&&$flag1)||(isset($flag2)&&$flag2)||(isset($flag3)&&$flag3)||(isset($flag4)&&$flag4)||(isset($flag5)&&$flag5)||(isset($flag6)&&$flag6)){
 	//echo "Done";
-	++$_SESSION['num_term'];
+	//++$_SESSION['num_term'];
 	header("Location: sh.php");
 	$_SESSION["isReg"] = true;
 }

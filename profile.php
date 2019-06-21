@@ -17,7 +17,44 @@ $gpa_array=array();
 while($row_gpa = mysqli_fetch_array($gpa_result)){
   array_push($gpa_array,$row_gpa['gpa']);
 }
+$statment1="select * from reg where reg.uid='$id' and grade=1 ";
+  $result =mysqli_query($con,$statment1);
+  if(mysqli_num_rows($result)>0){
+    $number_of_sub=mysqli_num_rows($result);
 
+    $number_of_hours=$number_of_sub*3;
+    var_dump($number_of_hours);
+    // die();
+if ($number_of_hours>=0&&$number_of_hours <18) {// term2
+  $_SESSION['num_term']=1;
+}
+if ($number_of_hours>=18&&$number_of_hours <36) {// term2
+  $_SESSION['num_term']=2;
+}
+if ($number_of_hours>=36&&$number_of_hours <54) { //term3
+   $_SESSION['num_term']=3;
+ }
+
+if ($number_of_hours>=54&&$number_of_hours <75) {//term4
+   $_SESSION['num_term']=4;
+}
+if($number_of_hours>=75&&$number_of_hours <96) { //term5
+   $_SESSION['num_term']=5;
+}
+
+if($number_of_hours>=96&&$number_of_hours <117) {// term6
+   $_SESSION['num_term']=6;
+
+}
+
+if($number_of_hours>=117&&$number_of_hours <138) { // term7
+   $_SESSION['num_term']=7;
+}
+
+if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+   $_SESSION['num_term']=8;
+}
+}
 ?>
 <html lang="en" dir="ltr"><head>
   <meta charset="utf-8">
@@ -86,7 +123,7 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
             if(mysqli_num_rows($result)==0){
               echo 1;}
               elseif(isset($_SESSION['num_term'])){ 
-                echo $_SESSION['num_term']-1; }
+                echo $_SESSION['num_term']; }
 
                 else{}
                   ?></td>
@@ -98,7 +135,7 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
               <tr>
                 <td class="text-primary">Achieved Hours </td>
                 <?php
-                $statment1="select * from reg where reg.uid='$id' ";
+                $statment1="select * from reg where reg.uid='$id' and grade=1 ";
                 $result =mysqli_query($con,$statment1);
                 if(mysqli_num_rows($result)>0){
                   $number_of_sub=mysqli_num_rows($result);
