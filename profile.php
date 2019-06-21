@@ -82,7 +82,7 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
             <td class="text-primary">Period </td>
             <td><?php  
             if(isset($_SESSION['num_term'])){ 
-              echo $_SESSION['num_term']; }else{ echo 1;}
+              echo $_SESSION['num_term']-1; }else{ echo 1;}
               ?></td>
             </tr>
             <tr>
@@ -98,33 +98,37 @@ while($row_gpa = mysqli_fetch_array($gpa_result)){
                 $number_of_sub=mysqli_num_rows($result);
 
                 $number_of_hours=$number_of_sub*3;
-    if ($number_of_hours>=54&&$number_of_hours <75) {//term4
+    if ($number_of_hours>54&&$number_of_hours <=75) {//term4
 
       $number_of_hours-=3;
     }
-if($number_of_hours>=75&&$number_of_hours <96) { //term5
+if($number_of_hours>75&&$number_of_hours <=96) { //term5
 
   $number_of_hours-=6;
   echo "<td>".$number_of_hours."</td>";  
 
 }
-if($number_of_hours>=96&&$number_of_hours <117) {// term6
+if($number_of_hours>96&&$number_of_hours <=117) {// term6
 
   $number_of_hours-=9;
   echo "<td>".$number_of_hours."</td>";  
+  echo "Fff";
 
 }
-if($number_of_hours>=117&&$number_of_hours <138) { // term7
+if($number_of_hours>117&&$number_of_hours <=138) { // term7
 
   $number_of_hours-=12;
-  echo "<td>".$number_of_hours."</td>";  
+  echo "<td>".$number_of_hours."</td>"; 
+  echo "ggg"; 
 
 }
-if($number_of_hours>=138&&$number_of_hours <159) { // term 8
+if($number_of_hours>138&&$number_of_hours <=159) { // term 8
 
   $number_of_hours-=15;
   echo "<td>".$number_of_hours."</td>";  
 
+}else{
+ echo "<td>".$number_of_hours."</td>";  
 }
 }else{?>
  <td> Not Register Courses Till Now</td>
