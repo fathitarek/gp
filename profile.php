@@ -25,27 +25,27 @@ if ($number_of_hours>=18&&$number_of_hours <36) {// term2
   $courses_sql = "SELECT * from courses where (courses.term=1 OR courses.term=2 OR courses.term=3 OR courses.term=4 OR courses.term=5 OR courses.term=6 OR courses.term=7 OR courses.term=8 ) and  courses.id NOT IN (SELECT reg.cid from reg where reg.uid='$id' and reg.grade=1 )";
 }
 if ($number_of_hours>=36&&$number_of_hours <54) { //term3
-   $_SESSION['num_term']=3;
+ $_SESSION['num_term']=3;
 
-
+}
 if ($number_of_hours>=54&&$number_of_hours <75) {//term4
-   $_SESSION['num_term']=4;
+ $_SESSION['num_term']=4;
 }
 if($number_of_hours>=75&&$number_of_hours <96) { //term5
-   $_SESSION['num_term']=5;
+ $_SESSION['num_term']=5;
 }
 
 if($number_of_hours>=96&&$number_of_hours <117) {// term6
-   $_SESSION['num_term']=6;
+ $_SESSION['num_term']=6;
 
 }
 
 if($number_of_hours>=117&&$number_of_hours <138) { // term7
-   $_SESSION['num_term']=7;
+ $_SESSION['num_term']=7;
 }
 
 if($number_of_hours>=138&&$number_of_hours <159) { // term 8
-   $_SESSION['num_term']=8;
+ $_SESSION['num_term']=8;
 }
 ?>
 <html lang="en" dir="ltr"><head>
