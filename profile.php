@@ -52,7 +52,7 @@ if($number_of_hours>117&&$number_of_hours <=138) { // term7
 if($number_of_hours>138&&$number_of_hours <=159) { // term 8
  $_SESSION['num_term']=8;
 }
-
+}
 ?>
 <html lang="en" dir="ltr"><head>
   <meta charset="utf-8">
