@@ -144,33 +144,60 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
                  }
     if ($number_of_hours>54&&$number_of_hours <=75) {//term4
 
-      $number_of_hours-=3;
+ $fail="select * from reg where reg.uid='$id' and grade=0";
+                $result_fail =mysqli_query($con,$fail);
+                if(mysqli_num_rows($result_fail)>0){
+                  $number_of_sub_fail=mysqli_num_rows($result_fail);
+        echo "<td>".$number_of_hours."</td>"; 
+                  }else{
+          $number_of_hours-=3;
       echo "<td>".$number_of_hours."</td>"; 
+                  }
     }
 if($number_of_hours>75&&$number_of_hours <=96) { //term5
-
+$fail="select * from reg where reg.uid='$id' and grade=0";
+                $result_fail =mysqli_query($con,$fail);
+                if(mysqli_num_rows($result_fail)>0){
+                  $number_of_sub_fail=mysqli_num_rows($result_fail);
+        echo "<td>".$number_of_hours."</td>"; 
+                  }else{
   $number_of_hours-=6;
   echo "<td>".$number_of_hours."</td>";  
-
+}
 }
 if($number_of_hours>96&&$number_of_hours <=117) {// term6
-
+$fail="select * from reg where reg.uid='$id' and grade=0";
+                $result_fail =mysqli_query($con,$fail);
+                if(mysqli_num_rows($result_fail)>0){
+                  $number_of_sub_fail=mysqli_num_rows($result_fail);
+        echo "<td>".$number_of_hours."</td>"; 
+                  }else{
   $number_of_hours-=9;
   echo "<td>".$number_of_hours."</td>";  
-
+}
 }
 if($number_of_hours>117&&$number_of_hours <=138) { // term7
-
+$fail="select * from reg where reg.uid='$id' and grade=0";
+                $result_fail =mysqli_query($con,$fail);
+                if(mysqli_num_rows($result_fail)>0){
+                  $number_of_sub_fail=mysqli_num_rows($result_fail);
+        echo "<td>".$number_of_hours."</td>"; 
+                  }else{
   $number_of_hours-=12;
   echo "<td>".$number_of_hours."</td>"; 
   // echo "ggg"; 
-
+}
 }
 if($number_of_hours>138&&$number_of_hours <=159) { // term 8
-
+$fail="select * from reg where reg.uid='$id' and grade=0";
+                $result_fail =mysqli_query($con,$fail);
+                if(mysqli_num_rows($result_fail)>0){
+                  $number_of_sub_fail=mysqli_num_rows($result_fail);
+        echo "<td>".$number_of_hours."</td>"; 
+                  }else{
   $number_of_hours-=15;
   echo "<td>".$number_of_hours."</td>";  
-
+}
 }
 }else{?>
  <td> Not Register Courses Till Now</td>
