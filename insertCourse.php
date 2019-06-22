@@ -401,6 +401,7 @@ if (sizeof($new_courses_ids)>1) {
   while($row_gpa = mysqli_fetch_array($gpa_result)){
     array_push($gpa_array,$row_gpa['gpa']);
   }
+  // var_dump($gpa_array);
         if ($gpa_array[0]>2.0||$_SESSION['num_term']==1) {
 
  // check gpa
