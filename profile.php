@@ -120,10 +120,10 @@ if($number_of_hours>138&&$number_of_hours <=159) { // term 8
             $result =mysqli_query($con,$statment1);
             if(mysqli_num_rows($result)==0){
               echo 1;}
-              elseif(isset($_SESSION['num_term'])){ 
+              elseif(isset($_SESSION['num_term'])&&$_SESSION['num_term']<=8){ 
                 echo $_SESSION['num_term']; }
 
-                else{}
+                else{echo "8";}
                   ?></td>
               </tr>
               <tr>
